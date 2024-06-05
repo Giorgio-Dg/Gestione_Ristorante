@@ -12,6 +12,11 @@ public class OrdineDAO {
 	private ClienteDAO Cliente;
 	private ArrayList<ElementoOrdineDAO> Piatti;
 	
+	public OrdineDAO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public OrdineDAO(int iDOrdine, String statoOrdine, LocalDate data, LocalTime ora, ClienteDAO cliente) {
 		IDOrdine = iDOrdine;
 		StatoOrdine = statoOrdine;
