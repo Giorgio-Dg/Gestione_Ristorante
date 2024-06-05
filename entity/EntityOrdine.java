@@ -1,6 +1,7 @@
 package entity;
 
 import java.time.*;
+import java.util.ArrayList;
 
 public class EntityOrdine {
 	
@@ -9,6 +10,7 @@ public class EntityOrdine {
 	private LocalDate Data;
 	private LocalTime Ora;
 	private EntityCliente Cliente;
+	private ArrayList<EntityElementoOrdine> Piatti;
 	
 	public EntityOrdine(int iDOrdine, String statoOrdine, LocalDate data, LocalTime ora, EntityCliente cliente) {
 		IDOrdine = iDOrdine;
@@ -16,6 +18,7 @@ public class EntityOrdine {
 		Data = data;
 		Ora = ora;
 		Cliente = cliente;
+		Piatti = new ArrayList<EntityElementoOrdine>();
 	}
 
 	public int getIDOrdine() {
@@ -58,4 +61,12 @@ public class EntityOrdine {
 		Cliente = cliente;
 	}
 
+	public ArrayList<EntityElementoOrdine> getPiatti() {
+		return Piatti;
+	}
+
+	public void setPiatti(ArrayList<EntityElementoOrdine> piatti) {
+		Piatti = piatti;
+	}
+	
 }
