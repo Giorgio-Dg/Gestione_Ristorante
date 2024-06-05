@@ -18,7 +18,7 @@ public class ClienteDAO{
 
 	public void caricaDaDB() {
 		
-		String query = new String("select * from clienti where idcliente =\'"+this.IDCliente+"';");
+		String query = new String("select * from clienti where idcliente ='"+this.IDCliente+"';");
 		
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
@@ -38,7 +38,7 @@ public class ClienteDAO{
 	
 	public void caricaOrdiniClienteDaDB() {
 		
-		String query = new String("select * from ordini where Cliente_idCliente=\'"+this.IDCliente+"')" );
+		String query = new String("select * from ordini where Cliente_idCliente='"+this.IDCliente+"')" );
 		//System.out.println(query); //stampo query per controllo in fase di DEBUG, poi posso commentare
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
