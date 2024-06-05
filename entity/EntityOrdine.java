@@ -8,12 +8,14 @@ public class EntityOrdine {
 	private String StatoOrdine;
 	private LocalDate Data;
 	private LocalTime Ora;
+	private EntityCliente Cliente;
 	
-	public EntityOrdine(int iDOrdine, String statoOrdine, LocalDate data, LocalTime ora) {
+	public EntityOrdine(int iDOrdine, String statoOrdine, LocalDate data, LocalTime ora, EntityCliente cliente) {
 		IDOrdine = iDOrdine;
 		StatoOrdine = statoOrdine;
 		Data = data;
 		Ora = ora;
+		Cliente = cliente;
 	}
 
 	public int getIDOrdine() {
@@ -47,5 +49,13 @@ public class EntityOrdine {
 	public void setOra(LocalTime ora) {
 		Ora = ora;
 	}
-	
+
+	public EntityCliente getCliente() {
+		return Cliente;
+	}
+
+	public void setCliente(EntityCliente cliente) {
+		Cliente = cliente;
+	}
+
 }
