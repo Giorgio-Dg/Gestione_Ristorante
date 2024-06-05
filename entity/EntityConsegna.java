@@ -5,7 +5,6 @@ public class EntityConsegna {
 	private String StatoConsegna;
 	
 	public EntityConsegna(int iDConsegna, String statoConsegna) {
-		super();
 		IDConsegna = iDConsegna;
 		StatoConsegna = statoConsegna;
 	}
@@ -25,4 +24,6 @@ public class EntityConsegna {
 	public void setStatoConsegna(String statoConsegna) {
 		StatoConsegna = statoConsegna;
 	}
+	
+	
 }

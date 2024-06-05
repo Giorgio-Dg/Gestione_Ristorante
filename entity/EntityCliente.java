@@ -7,9 +7,8 @@ public class EntityCliente {
 	private String Cognome;
 	private String Indirizzo;
 	
-	public EntityCliente(int idcliente, String nome, String cognome, String indirizzo) {
-		super();
-		IDCliente = idcliente;
+	public EntityCliente(int iDCliente, String nome, String cognome, String indirizzo) {
+		IDCliente = iDCliente;
 		Nome = nome;
 		Cognome = cognome;
 		Indirizzo = indirizzo;
@@ -19,8 +18,8 @@ public class EntityCliente {
 		return IDCliente;
 	}
 
-	public void setIDCliente(int IDCliente) {
-		IDCliente = IDCliente;
+	public void setIDCliente(int iDCliente) {
+		IDCliente = iDCliente;
 	}
 
 	public String getNome() {
@@ -47,8 +46,4 @@ public class EntityCliente {
 		Indirizzo = indirizzo;
 	}
 	
-	
-	
-	
-
 }
