@@ -110,6 +110,12 @@ public class ClienteDAO{
 	public void setOrdini(ArrayList<OrdineDAO> ordini) {
 		Ordini = ordini;
 	}
+
+	@Override
+	public String toString() {
+		return "ClienteDAO [IDCliente=" + IDCliente + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Indirizzo="
+				+ Indirizzo + ", Ordini=" + Ordini + "]";
+	}
 	
 }
 
