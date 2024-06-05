@@ -8,6 +8,7 @@ public class ConsegnaDAO {
 	private int IDConsegna;
 	private String StatoConsegna;
 	private CorriereDAO Corriere;
+	private OrdineDAO Ordine;
 	
 	public ConsegnaDAO() {
 		super();
@@ -28,6 +29,7 @@ public class ConsegnaDAO {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
 			if(rs.next()) this.setStatoConsegna(rs.getString("StatoConsegna"));
+			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,6 +54,29 @@ public class ConsegnaDAO {
 				this.Corriere = corriere;
 				
 			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void caricaOrdineConsegnaDaDB() {
+		
+		String query = new String("select * from ordini o join consegne c on o.idOrdine = c.Ordine_idOrdine)" );
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			while(rs.next()) {	
+				
+				OrdineDAO ordine = new OrdineDAO();
+				ordine.setIDOrdine(rs.getInt("o.idOrdine"));
+				ordine.setStatoOrdine(rs.getString("o.StatoOrdine"));
+				ordine.setData(rs.getDate("o.Data").toLocalDate());
+				ordine.setOra(rs.getTime("o.Ora").toLocalTime());
+				
+                this.Ordine=ordine;
+			}
+			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
