@@ -5,4 +5,5 @@ public class ClienteDAO {
 	private String Nome;
 	private String Cognome;
 	private String Indirizzo;
+	private String Ciao;
 }
