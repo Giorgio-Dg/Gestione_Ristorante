@@ -1,5 +1,7 @@
 package database;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.*;
 import java.util.ArrayList;
 
@@ -17,15 +19,60 @@ public class OrdineDAO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrdineDAO(int iDOrdine, String statoOrdine, LocalDate data, LocalTime ora, ClienteDAO cliente) {
-		IDOrdine = iDOrdine;
-		StatoOrdine = statoOrdine;
-		Data = data;
-		Ora = ora;
-		Cliente = cliente;
-		Piatti = new ArrayList<ElementoOrdineDAO>();
+	//costruttore che prende in ingresso la PK
+	public OrdineDAO(int idordine) {
+				
+		this.IDOrdine = idordine;
+		this.Piatti = new ArrayList<ElementoOrdineDAO>();
+		caricaDaDB();
 	}
-
+	
+	public void caricaDaDB() {
+		
+		String query = new String("select * from ordini where idordine ='"+this.IDOrdine+"';");
+		
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			if(rs.next()) {
+				
+				OrdineDAO ordine = new OrdineDAO();
+				ordine.setStatoOrdine(rs.getString("StatoOrdine"));
+				ordine.setData(rs.getDate("Data").toLocalDate());
+				ordine.setOra(rs.getTime("Ora").toLocalTime());
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void caricaClienteOrdineDaDB() {
+		
+		String query = new String("select c.idCliente, c.Nome, c.Cognome, c.Indirizzo "
+				+ "from clienti c join ordini o on c.idCliente = o.Cliente_idCliente");
+		try {
+			
+			ResultSet rs1 = DBConnectionManager.selectQuery(query);
+			
+			if(rs1.next()) {
+				
+				ClienteDAO cliente = new ClienteDAO();
+				cliente.setIDCliente(rs1.getInt("idCliente"));
+				cliente.setNome(rs1.getString("Nome"));
+				cliente.setCognome(rs1.getString("Cognome"));
+				cliente.setIndirizzo(rs1.getString("Indirizzo"));
+				
+				this.Cliente = cliente;
+				
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public int getIDOrdine() {
 		return IDOrdine;
 	}

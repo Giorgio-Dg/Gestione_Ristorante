@@ -18,12 +18,12 @@ public class ClienteDAO{
 	}
 	
 	//costruttore che prende in ingresso la PK
-		public ClienteDAO(int idcliente) {
+	public ClienteDAO(int idcliente) {
 			
-			this.IDCliente = idcliente;
-			this.Ordini = new ArrayList<OrdineDAO>();
-			caricaDaDB();
-			//caricaOrdiniClienteDaDB(); lo deve fare l'entity ma perche???????
+		this.IDCliente = idcliente;
+		this.Ordini = new ArrayList<OrdineDAO>();
+		caricaDaDB();
+		//caricaOrdiniClienteDaDB(); lo deve fare l'entity ma perche???????
 	}
 
 	public void caricaDaDB() {
