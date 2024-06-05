@@ -13,7 +13,17 @@ public class ClienteDAO{
 	private ArrayList<OrdineDAO> Ordini;
 	
 	public ClienteDAO() {
-		//////////
+		super();
+		Ordini = new ArrayList<OrdineDAO>();
+	}
+	
+	//costruttore che prende in ingresso la PK
+		public ClienteDAO(int idcliente) {
+			
+			this.IDCliente = idcliente;
+			this.Ordini = new ArrayList<OrdineDAO>();
+			caricaDaDB();
+			//caricaOrdiniClienteDaDB(); lo deve fare l'entity ma perche???????
 	}
 
 	public void caricaDaDB() {
@@ -25,7 +35,6 @@ public class ClienteDAO{
 			
 			if(rs.next()) {
 				
-				this.setIDCliente(rs.getInt("idCliente"));
 				this.setNome(rs.getString("Nome"));
 				this.setCognome(rs.getString("Cognome"));
 				this.setIndirizzo(rs.getString("Indirizzo"));
