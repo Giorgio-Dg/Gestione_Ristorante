@@ -1,5 +1,7 @@
 package database;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CorriereDAO {
@@ -12,13 +14,55 @@ public class CorriereDAO {
 	public CorriereDAO() {
 		super();
 		// TODO Auto-generated constructor stub
+		Consegne = new ArrayList<ConsegnaDAO>(3);
 	}
 
-	public CorriereDAO(int iDCorriere, String nome, int disponibilita) {
-		IDCorriere = iDCorriere;
-		Nome = nome;
-		Disponibilita = disponibilita;
-		Consegne = new ArrayList<ConsegnaDAO>(3);///????3 o no?
+	//costruttore che prende in ingresso la PK
+	public CorriereDAO(int idcorriere) {
+			
+		this.IDCorriere = idcorriere;
+		this.Consegne = new ArrayList<ConsegnaDAO>(3);
+		caricaDaDB();
+	}
+
+	public void caricaDaDB() {
+		
+		String query = new String("select * from corriere where idCorriere ='"+this.IDCorriere+"';");
+		
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			if(rs.next()) {
+				
+				this.setNome(rs.getString("Nome"));
+				this.setDisponibilita(rs.getInt("Disponibilita"));
+				
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void caricaConsegneCorriereDaDB() {
+		
+		//String query = new String("select * from ordine where Cliente_idCliente='"+this.IDCliente+"')" );
+		//System.out.println(query); //stampo query per controllo in fase di DEBUG, poi posso commentare
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			while(rs.next()) {		
+				ConsegnaDAO consegna = new ConsegnaDAO();
+				consegna.setIDConsegna(rs.getInt("idOrdine"));
+				consegna.setStatoConsegna(rs.getString("StatoOrdine"));
+				//consegna.setOrdineDAO(); PRENDERE ANCHE L'ORDINE E SETTARE ANCHE IDCORRIERE?? FARLO ANCHE NEGLI ALTRI GIA FATTI 
+				this.Consegne.add(consegna);
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public int getIDCorriere() {
