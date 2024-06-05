@@ -29,7 +29,7 @@ public class OrdineDAO {
 	
 	public void caricaDaDB() {
 		
-		String query = new String("select * from ordini where idordine ='"+this.IDOrdine+"';");
+		String query = new String("select * from ordine where idOrdine ='"+this.IDOrdine+"';");
 		
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
@@ -50,7 +50,7 @@ public class OrdineDAO {
 	public void caricaClienteOrdineDaDB() {
 		
 		String query = new String("select c.idCliente, c.Nome, c.Cognome, c.Indirizzo "
-				+ "from clienti c join ordini o on c.idCliente = o.Cliente_idCliente");
+				+ "from cliente c join ordine o on c.idCliente = o.Cliente_idCliente");
 		try {
 			
 			ResultSet rs1 = DBConnectionManager.selectQuery(query);
@@ -58,10 +58,10 @@ public class OrdineDAO {
 			if(rs1.next()) {
 				
 				ClienteDAO cliente = new ClienteDAO();
-				cliente.setIDCliente(rs1.getInt("idCliente"));
-				cliente.setNome(rs1.getString("Nome"));
-				cliente.setCognome(rs1.getString("Cognome"));
-				cliente.setIndirizzo(rs1.getString("Indirizzo"));
+				cliente.setIDCliente(rs1.getInt("c.idCliente"));
+				cliente.setNome(rs1.getString("c.Nome"));
+				cliente.setCognome(rs1.getString("c.Cognome"));
+				cliente.setIndirizzo(rs1.getString("c.Indirizzo"));
 				
 				this.Cliente = cliente;
 				

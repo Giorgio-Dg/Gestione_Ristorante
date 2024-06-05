@@ -9,6 +9,11 @@ public class CorriereDAO {
 	private ArrayList<ConsegnaDAO> Consegne;
 	
 	
+	public CorriereDAO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public CorriereDAO(int iDCorriere, String nome, int disponibilita) {
 		IDCorriere = iDCorriere;
 		Nome = nome;
