@@ -2,6 +2,7 @@ package database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class PiattoDAO {
 	private String Nome;
@@ -25,6 +26,27 @@ public class PiattoDAO {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
 			if(rs.next()) this.setDescrizione(rs.getString("Descrizione"));
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void caricaTuttiPiattiDaDB() {
+		
+		ArrayList<PiattoDAO> elenco_piatti = new ArrayList<PiattoDAO>();
+		String query = new String("select * from piatto;");
+		
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			if(rs.next()) {
+				PiattoDAO piatto = new PiattoDAO();
+				piatto.setNome(rs.getString("Nome"));
+				piatto.setDescrizione(rs.getString("Descrizione"));
+				
+				elenco_piatti.add(piatto);
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
