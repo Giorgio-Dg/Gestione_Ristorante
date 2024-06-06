@@ -26,6 +26,13 @@ public class EntityPiatto {
 		this.Nome = piatto.getNome();
 		this.Descrizione = piatto.getDescrizione(); 
 	}
+	
+	/*
+	public void insLinkElementoOrdine(EntityElementoOrdine t) {
+		if(link == null && t!=null && t.getPiatto() == this)
+			link = t;
+	}
+	*/
 
 
 	public String getNome() {

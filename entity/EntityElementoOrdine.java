@@ -6,7 +6,7 @@ public class EntityElementoOrdine {
 	private EntityPiatto Piatto;
 	private int Quantita;
 	
-	public EntityElementoOrdine(EntityPiatto piatto, int quantita) {
+	public EntityElementoOrdine(EntityOrdine ordine, EntityPiatto piatto, int quantita) {
 		Piatto = piatto;
 		Quantita = quantita;
 	}
