@@ -15,24 +15,12 @@ public class EntityElementoOrdine {
 		return Piatto;
 	}
 
-	public void setPiatto(EntityPiatto piatto) {
-		Piatto = piatto;
-	}
-
 	public int getQuantita() {
 		return Quantita;
 	}
 
-	public void setQuantita(int quantita) {
-		Quantita = quantita;
-	}
-
 	public EntityOrdine getOrdine() {
 		return Ordine;
-	}
-
-	public void setOrdine(EntityOrdine ordine) {
-		Ordine = ordine;
 	}
 	
 }

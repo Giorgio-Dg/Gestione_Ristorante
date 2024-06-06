@@ -41,24 +41,13 @@ public class ElementoOrdineDAO {
 		return Piatto;
 	}
 
-	public void setPiatto(PiattoDAO piatto) {
-		Piatto = piatto;
-	}
-
 	public int getQuantita() {
 		return Quantita;
 	}
 
-	public void setQuantita(int quantita) {
-		Quantita = quantita;
-	}
 
 	public OrdineDAO getOrdine() {
 		return Ordine;
 	}
 
-	public void setOrdine(OrdineDAO ordine) {
-		Ordine = ordine;
-	}
-	
 }
