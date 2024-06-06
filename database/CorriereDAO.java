@@ -44,16 +44,14 @@ public class CorriereDAO {
 	}
 	
 	public void caricaConsegneCorriereDaDB() {
-		
-		//String query = new String("select * from ordine where Cliente_idCliente='"+this.IDCliente+"')" );
-		//System.out.println(query); //stampo query per controllo in fase di DEBUG, poi posso commentare
+			String query = new String("select * from consegna join corriere on idCorriere = Consegna_idCorriere)");
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
 			while(rs.next()) {		
 				ConsegnaDAO consegna = new ConsegnaDAO();
-				consegna.setIDConsegna(rs.getInt("idOrdine"));
-				consegna.setStatoConsegna(rs.getString("StatoOrdine"));
+				consegna.setIDConsegna(rs.getInt("idConsegna"));
+				consegna.setStatoConsegna(rs.getString("StatoConsegna"));
 				//consegna.setOrdineDAO(); PRENDERE ANCHE L'ORDINE E SETTARE ANCHE IDCORRIERE?? FARLO ANCHE NEGLI ALTRI GIA FATTI 
 				this.Consegne.add(consegna);
 			}
