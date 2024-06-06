@@ -52,6 +52,7 @@ public class ClienteDAO{
 			
 			if(rs.next()) {
 				ClienteDAO cliente = new ClienteDAO();
+				cliente.setIDCliente(rs.getInt("idCliente"));
 				cliente.setNome(rs.getString("Nome"));
 				cliente.setCognome(rs.getString("Cognome"));
 				cliente.setIndirizzo(rs.getString("Indirizzo"));

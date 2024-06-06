@@ -47,6 +47,30 @@ public class OrdineDAO {
 		}
 	}
 	
+	public void caricaTuttiOrdiniDaDB() {
+		
+		ArrayList<OrdineDAO> elenco_ordini = new ArrayList<OrdineDAO>();
+		String query = new String("select * from ordine;");
+		
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			if(rs.next()) {
+				
+				OrdineDAO ordine = new OrdineDAO();
+				ordine.setIDOrdine(rs.getInt("idOrdine"));
+				ordine.setStatoOrdine(rs.getString("StatoOrdine"));
+				ordine.setData(rs.getDate("Data").toLocalDate());
+				ordine.setOra(rs.getTime("Ora").toLocalTime());
+				
+				elenco_ordini.add(ordine);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void caricaClienteOrdineDaDB() {
 		
 		String query = new String("select c.idCliente, c.Nome, c.Cognome, c.Indirizzo "
@@ -62,8 +86,6 @@ public class OrdineDAO {
 				cliente.setNome(rs1.getString("c.Nome"));
 				cliente.setCognome(rs1.getString("c.Cognome"));
 				cliente.setIndirizzo(rs1.getString("c.Indirizzo"));
-				//caricare lista ordini del cliente????
-				this.Cliente = cliente;
 				
 			}
 		} catch (ClassNotFoundException | SQLException e) {

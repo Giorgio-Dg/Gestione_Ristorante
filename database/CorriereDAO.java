@@ -43,6 +43,30 @@ public class CorriereDAO {
 		}
 	}
 	
+	public void caricaTuttiCorrieriDaDB() {
+		
+		ArrayList<CorriereDAO> elenco_corrieri = new ArrayList<CorriereDAO>();
+		String query = new String("select * from corriere;");
+		
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			if(rs.next()) {
+				
+				CorriereDAO corriere = new CorriereDAO();
+				corriere.setIDCorriere(rs.getInt("idCorriere"));
+				corriere.setNome(rs.getString("Nome"));
+				corriere.setDisponibilita(rs.getInt("Disponibilita"));
+				/////////////////////////////////////////////////////////////////////
+				
+				elenco_corrieri.add(corriere);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void caricaConsegneCorriereDaDB() {
 			String query = new String("select * from consegna join corriere on idCorriere = Consegna_idCorriere)");
 		try {
