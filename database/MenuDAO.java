@@ -11,14 +11,20 @@ public class MenuDAO {
 		super();
 	}
 
-	public void caricaDaDB() {
+	public void caricaPiattiMenuDaDB() {
 		
-		String query = new String("select * from piatto where Nome ='"+this.Nome+"';");
+		String query = new String("select * from piatto;");
 		
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
-			if(rs.next()) this.setDescrizione(rs.getString("Descrizione"));
+			if(rs.next()) {
+				PiattoDAO piatto = new PiattoDAO();
+				piatto.setNome(rs.getString("Nome"));
+				piatto.setDescrizione(rs.getString("Descrizione"));
+				
+				this.Piatti.add(piatto);
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
