@@ -73,16 +73,19 @@ public class ClienteDAO{
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public void caricaTuttiClientiDaDB() {
 		
+		ArrayList<ClienteDAO> elenco_clienti = new ArrayList<ClienteDAO>();
 		String query = new String("select * from cliente;");
 		
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
 			if(rs.next()) {
+				ClienteDAO cliente = new ClienteDAO();
+				cliente.setNome(rs.getString("Nome"));
+				cliente.setCognome(rs.getString("Cognome"));
+				cliente.setIndirizzo(rs.getString("Indirizzo"));
 				
-				this.setNome(rs.getString("Nome"));
-				this.setCognome(rs.getString("Cognome"));
-				this.setIndirizzo(rs.getString("Indirizzo"));
+				elenco_clienti.add(cliente);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
