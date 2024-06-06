@@ -1,6 +1,6 @@
 package entity;
 
-import java.util.ArrayList;
+import database.ClienteDAO;
 
 public class EntityCliente {
 	
@@ -9,12 +9,32 @@ public class EntityCliente {
 	private String Cognome;
 	private String Indirizzo;
 	
-	public EntityCliente(int iDCliente, String nome, String cognome, String indirizzo) {
-		IDCliente = iDCliente;
-		Nome = nome;
-		Cognome = cognome;
-		Indirizzo = indirizzo;
+	public EntityCliente() {
+		super();
 	}
+	
+	public EntityCliente(int idCliente) {
+		ClienteDAO cliente = new ClienteDAO(idCliente);
+		
+		this.Nome = cliente.getNome();
+		this.Cognome = cliente.getCognome();
+		this.Indirizzo = cliente.getIndirizzo();
+		
+		//System.out.println("EntityCliente: "+cliente.toString());
+		
+		// cliente non ha riferimenti ad altre classi
+		
+	}
+	
+			
+	public EntityCliente(ClienteDAO cliente) {
+				
+		this.Nome = cliente.getNome();
+		this.Cognome = cliente.getCognome();
+		this.Indirizzo = cliente.getIndirizzo();
+		 
+	}
+
 
 	public int getIDCliente() {
 		return IDCliente;

@@ -1,13 +1,30 @@
 package entity;
 
+import database.PiattoDAO;
+
 public class EntityPiatto {
 	private String Nome;
 	private String Descrizione;
 	
-	public EntityPiatto(String nome, String descrizione) {
-		Nome = nome;
-		Descrizione = descrizione;
+	public EntityPiatto() {
+		super();
 	}
+	
+	public EntityPiatto(String nome){
+		
+		PiattoDAO piatto = new PiattoDAO(nome);
+		
+		this.Descrizione = piatto.getDescrizione();
+		
+		//System.out.println("EntityStudente: "+studente.toString());
+	}
+	
+	public EntityPiatto(PiattoDAO piatto) {
+		
+		this.Descrizione = piatto.getDescrizione(); 
+	}
+
+
 	public String getNome() {
 		return Nome;
 	}

@@ -1,5 +1,6 @@
 package entity;
 
+import database.OrdineDAO;
 import java.time.*;
 import java.util.ArrayList;
 
@@ -12,14 +13,58 @@ public class EntityOrdine {
 	private EntityCliente Cliente;
 	private ArrayList<EntityElementoOrdine> Piatti;
 	
-	public EntityOrdine(int iDOrdine, String statoOrdine, LocalDate data, LocalTime ora, EntityCliente cliente) {
-		IDOrdine = iDOrdine;
-		StatoOrdine = statoOrdine;
-		Data = data;
-		Ora = ora;
-		Cliente = cliente;
-		Piatti = new ArrayList<EntityElementoOrdine>();
+	public EntityOrdine() {
+		super();
+		this.Piatti = new ArrayList<EntityElementoOrdine>();
 	}
+	
+	public EntityOrdine(int IDOrdine){
+		
+		OrdineDAO ordine = new OrdineDAO(IDOrdine);
+		
+		this.StatoOrdine = ordine.getStatoOrdine();
+		this.Data = ordine.getData();
+		this.Ora = ordine.getOra();
+		
+		this.Piatti = new ArrayList<EntityElementoOrdine>(); //creato array vuoto
+		
+		//System.out.println("EntityStudente: "+studente.toString());
+		
+					
+		
+		ordine.caricaClienteOrdineDaDB(); //mi carico i badge tramite lo studenteDAO
+		caricaCliente(ordine);
+		
+		//ordine.(); //QUA SERVE CARICA ORDINE PIATTI?? PER L'ARRAYLIST
+		
+		//caricaCorsi(studente);
+		
+		//System.out.println("EntityStudente: "+this);
+	}
+	
+	public EntityOrdine(OrdineDAO ordine) {
+		
+		this.StatoOrdine = ordine.getStatoOrdine();
+		this.Data = ordine.getData();
+		this.Ora = ordine.getOra();
+		
+		this.Piatti = new ArrayList<EntityElementoOrdine>();
+		
+		//ordine.caricaCorsiStudenteDaDB(); ARRAY DI PIATTI NON LO POSSO FARE NON Cè CARICA
+		//caricaCorsi(studente);
+		ordine.caricaClienteOrdineDaDB();
+		caricaCliente(ordine);
+; 
+	}
+
+	
+	public void caricaCliente(OrdineDAO ordine) {
+		
+		EntityCliente cliente = new EntityCliente(ordine.getCliente());		
+		this.Cliente = cliente;
+		
+	}
+
 
 	public int getIDOrdine() {
 		return IDOrdine;

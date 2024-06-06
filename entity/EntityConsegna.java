@@ -1,15 +1,44 @@
 package entity;
 
+import database.ConsegnaDAO;
+
 public class EntityConsegna {
 	private int IDConsegna;
 	private String StatoConsegna;
 	private EntityCorriere Corriere;
 	
-	public EntityConsegna(int iDConsegna, String statoConsegna,  EntityCorriere corriere) {
-		IDConsegna = iDConsegna;
-		StatoConsegna = statoConsegna;
-		Corriere = corriere;
+	public EntityConsegna() {
+		super();
 	}
+	
+	public EntityConsegna(int IDConsegna){
+		
+		ConsegnaDAO consegna = new ConsegnaDAO(IDConsegna);
+		
+		this.StatoConsegna = consegna.getStatoConsegna();
+		
+		//System.out.println("EntityStudente: "+studente.toString());
+		
+		consegna.caricaCorriereConsegnaDaDB();
+		caricaCorriere(consegna);
+		
+		//System.out.println("EntityStudente: "+this);
+	}
+	
+	public EntityConsegna(ConsegnaDAO consegna) {
+		
+		this.StatoConsegna = consegna.getStatoConsegna();
+		
+		consegna.caricaCorriereConsegnaDaDB();
+		caricaCorriere(consegna); 
+	}
+
+	
+	public void caricaCorriere(ConsegnaDAO consegna){
+		EntityCorriere corriere = new EntityCorriere(consegna.getCorriere());		
+		this.Corriere = corriere;
+	}
+
 
 	public int getIDConsegna() {
 		return IDConsegna;
