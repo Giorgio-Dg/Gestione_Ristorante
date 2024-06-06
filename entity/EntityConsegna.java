@@ -13,6 +13,8 @@ public class EntityConsegna {
 	
 	public EntityConsegna(int IDConsegna){
 		
+		this.IDConsegna = IDConsegna;
+		
 		ConsegnaDAO consegna = new ConsegnaDAO(IDConsegna);
 		
 		this.StatoConsegna = consegna.getStatoConsegna();
@@ -27,6 +29,7 @@ public class EntityConsegna {
 	
 	public EntityConsegna(ConsegnaDAO consegna) {
 		
+		this.IDConsegna = consegna.getIDConsegna();
 		this.StatoConsegna = consegna.getStatoConsegna();
 		
 		consegna.caricaCorriereConsegnaDaDB();

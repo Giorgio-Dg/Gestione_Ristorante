@@ -18,6 +18,8 @@ public class EntityCorriere {
 	
 	public EntityCorriere(int idCorriere){
 		
+		this.IDCorriere = idCorriere;
+		
 		CorriereDAO corriere = new CorriereDAO(idCorriere); //carico lo studente dal DB col costruttore
 		
 		this.Nome = corriere.getNome();
@@ -37,6 +39,7 @@ public class EntityCorriere {
 	
 	public EntityCorriere(CorriereDAO corriere) {
 		
+		this.IDCorriere = corriere.getIDCorriere();
 		this.Nome = corriere.getNome();
 		this.Disponibilita = corriere.getDisponibilita();
 		

@@ -20,6 +20,8 @@ public class EntityOrdine {
 	
 	public EntityOrdine(int IDOrdine){
 		
+		this.IDOrdine = IDOrdine;
+		
 		OrdineDAO ordine = new OrdineDAO(IDOrdine);
 		
 		this.StatoOrdine = ordine.getStatoOrdine();
@@ -44,6 +46,7 @@ public class EntityOrdine {
 	
 	public EntityOrdine(OrdineDAO ordine) {
 		
+		this.IDOrdine = ordine.getIDOrdine();
 		this.StatoOrdine = ordine.getStatoOrdine();
 		this.Data = ordine.getData();
 		this.Ora = ordine.getOra();

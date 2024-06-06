@@ -12,6 +12,8 @@ public class EntityPiatto {
 	
 	public EntityPiatto(String nome){
 		
+		this.Nome = nome;
+		
 		PiattoDAO piatto = new PiattoDAO(nome);
 		
 		this.Descrizione = piatto.getDescrizione();
@@ -21,6 +23,7 @@ public class EntityPiatto {
 	
 	public EntityPiatto(PiattoDAO piatto) {
 		
+		this.Nome = piatto.getNome();
 		this.Descrizione = piatto.getDescrizione(); 
 	}
 

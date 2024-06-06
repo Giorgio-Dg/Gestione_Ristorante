@@ -16,6 +16,7 @@ public class EntityCliente {
 	public EntityCliente(int idCliente) {
 		ClienteDAO cliente = new ClienteDAO(idCliente);
 		
+		this.IDCliente = idCliente;
 		this.Nome = cliente.getNome();
 		this.Cognome = cliente.getCognome();
 		this.Indirizzo = cliente.getIndirizzo();
@@ -28,7 +29,8 @@ public class EntityCliente {
 	
 			
 	public EntityCliente(ClienteDAO cliente) {
-				
+		
+		this.IDCliente = cliente.getIDCliente();
 		this.Nome = cliente.getNome();
 		this.Cognome = cliente.getCognome();
 		this.Indirizzo = cliente.getIndirizzo();
