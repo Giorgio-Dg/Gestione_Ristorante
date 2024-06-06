@@ -47,7 +47,7 @@ public class OrdineDAO {
 		}
 	}
 	
-	public void caricaTuttiOrdiniDaDB() {
+	public ArrayList<OrdineDAO> caricaTuttiOrdiniDaDB() {
 		
 		ArrayList<OrdineDAO> elenco_ordini = new ArrayList<OrdineDAO>();
 		String query = new String("select * from ordine;");
@@ -69,6 +69,7 @@ public class OrdineDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return elenco_ordini;
 	}
 	
 	public void caricaClienteOrdineDaDB() {

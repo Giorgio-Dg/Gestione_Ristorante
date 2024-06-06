@@ -43,7 +43,7 @@ public class CorriereDAO {
 		}
 	}
 	
-	public void caricaTuttiCorrieriDaDB() {
+	public ArrayList<CorriereDAO> caricaTuttiCorrieriDaDB() {
 		
 		ArrayList<CorriereDAO> elenco_corrieri = new ArrayList<CorriereDAO>();
 		String query = new String("select * from corriere;");
@@ -65,6 +65,7 @@ public class CorriereDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return elenco_corrieri;
 	}
 	
 	public void caricaConsegneCorriereDaDB() {

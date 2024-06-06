@@ -32,7 +32,7 @@ public class PiattoDAO {
 		}
 	}
 	
-	public void caricaTuttiPiattiDaDB() {
+	public ArrayList<PiattoDAO> caricaTuttiPiattiDaDB() {
 		
 		ArrayList<PiattoDAO> elenco_piatti = new ArrayList<PiattoDAO>();
 		String query = new String("select * from piatto;");
@@ -51,6 +51,7 @@ public class PiattoDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return elenco_piatti;
 	}
 	
 	public String getNome() {

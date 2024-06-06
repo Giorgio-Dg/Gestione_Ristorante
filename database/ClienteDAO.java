@@ -42,7 +42,7 @@ public class ClienteDAO{
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
-	public void caricaTuttiClientiDaDB() {
+	public ArrayList<ClienteDAO> caricaTuttiClientiDaDB() {
 		
 		ArrayList<ClienteDAO> elenco_clienti = new ArrayList<ClienteDAO>();
 		String query = new String("select * from cliente;");
@@ -63,6 +63,7 @@ public class ClienteDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return elenco_clienti;
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	
