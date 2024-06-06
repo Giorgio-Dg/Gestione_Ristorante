@@ -62,7 +62,7 @@ public class OrdineDAO {
 				cliente.setNome(rs1.getString("c.Nome"));
 				cliente.setCognome(rs1.getString("c.Cognome"));
 				cliente.setIndirizzo(rs1.getString("c.Indirizzo"));
-				
+				//caricare lista ordini del cliente????
 				this.Cliente = cliente;
 				
 			}

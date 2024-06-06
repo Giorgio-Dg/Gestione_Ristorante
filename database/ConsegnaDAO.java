@@ -2,7 +2,6 @@ package database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class ConsegnaDAO {
 	private int IDConsegna;
@@ -106,6 +105,14 @@ public class ConsegnaDAO {
 
 	public void setCorriere(CorriereDAO corriere) {
 		Corriere = corriere;
+	}
+
+	public OrdineDAO getOrdine() {
+		return Ordine;
+	}
+
+	public void setOrdine(OrdineDAO ordine) {
+		Ordine = ordine;
 	}
 	
 }

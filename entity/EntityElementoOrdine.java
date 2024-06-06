@@ -2,6 +2,7 @@ package entity;
 
 public class EntityElementoOrdine {
 	
+	private EntityOrdine Ordine;
 	private EntityPiatto Piatto;
 	private int Quantita;
 	
@@ -24,6 +25,14 @@ public class EntityElementoOrdine {
 
 	public void setQuantita(int quantita) {
 		Quantita = quantita;
+	}
+
+	public EntityOrdine getOrdine() {
+		return Ordine;
+	}
+
+	public void setOrdine(EntityOrdine ordine) {
+		Ordine = ordine;
 	}
 	
 }
