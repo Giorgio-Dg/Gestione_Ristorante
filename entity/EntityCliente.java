@@ -8,14 +8,12 @@ public class EntityCliente {
 	private String Nome;
 	private String Cognome;
 	private String Indirizzo;
-	private ArrayList<EntityOrdine> Ordini;
 	
 	public EntityCliente(int iDCliente, String nome, String cognome, String indirizzo) {
 		IDCliente = iDCliente;
 		Nome = nome;
 		Cognome = cognome;
 		Indirizzo = indirizzo;
-		Ordini = new ArrayList<EntityOrdine>();
 	}
 
 	public int getIDCliente() {
@@ -50,12 +48,4 @@ public class EntityCliente {
 		Indirizzo = indirizzo;
 	}
 
-	public ArrayList<EntityOrdine> getOrdini() {
-		return Ordini;
-	}
-
-	public void setOrdini(ArrayList<EntityOrdine> ordini) {
-		Ordini = ordini;
-	}
-	
 }
