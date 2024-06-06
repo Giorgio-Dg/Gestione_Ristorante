@@ -70,6 +70,26 @@ public class ClienteDAO{
 			e.printStackTrace();
 		}
 	}
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	public void caricaTuttiClientiDaDB() {
+		
+		String query = new String("select * from cliente;");
+		
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			if(rs.next()) {
+				
+				this.setNome(rs.getString("Nome"));
+				this.setCognome(rs.getString("Cognome"));
+				this.setIndirizzo(rs.getString("Indirizzo"));
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public int getIDCliente() {
 		return IDCliente;
