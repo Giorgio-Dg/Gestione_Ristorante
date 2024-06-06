@@ -19,7 +19,6 @@ public class CorriereDAO {
 
 	//costruttore che prende in ingresso la PK
 	public CorriereDAO(int idcorriere) {
-			
 		this.IDCorriere = idcorriere;
 		this.Consegne = new ArrayList<ConsegnaDAO>(3);
 		caricaDaDB();
