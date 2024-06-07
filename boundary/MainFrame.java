@@ -40,5 +40,3 @@ public class MainFrame extends JFrame {
 	}
 
 }
-
-lppp
