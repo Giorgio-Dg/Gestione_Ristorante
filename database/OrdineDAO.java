@@ -95,7 +95,6 @@ public class OrdineDAO {
 		}
 	}
 	
-	
 	public int getIDOrdine() {
 		return IDOrdine;
 	}

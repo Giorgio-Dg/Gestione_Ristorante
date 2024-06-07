@@ -28,13 +28,9 @@ public class EntityOrdine {
 		this.Data = ordine.getData();
 		this.Ora = ordine.getOra();
 		
-		this.Piatti = new ArrayList<EntityElementoOrdine>(); //creato array vuoto
+		this.Piatti = new ArrayList<EntityElementoOrdine>();
 		
-		//System.out.println("EntityStudente: "+studente.toString());
-		
-					
-		
-		ordine.caricaClienteOrdineDaDB(); //mi carico i badge tramite lo studenteDAO
+		ordine.caricaClienteOrdineDaDB();
 		caricaCliente(ordine);
 		
 		//ordine.(); //QUA SERVE CARICA ORDINE PIATTI?? PER L'ARRAYLIST
