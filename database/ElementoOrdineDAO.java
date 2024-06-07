@@ -14,23 +14,27 @@ public class ElementoOrdineDAO {
 	}
 	
 	//costruttore che prende in ingresso la PK
-	public ElementoOrdineDAO(String nome) {
-		//caricaDaDB();
+	public ElementoOrdineDAO(int IDOrdine, String Nome) {
+		this.Ordine = new OrdineDAO(IDOrdine);
+		this.Piatto = new PiattoDAO(Nome);
+		caricaDaDB();
 	}
 
-	/*public void caricaDaDB() {
+	public void caricaDaDB() {
 		
-		String query = new String("select * from piatto where Nome ='"+"';");
+		String query = new String("select * from elementoordine where Ordine_idOrdine ='"+this.Ordine.getIDOrdine()+"' and Piatto_Nome='"+this.Piatto.getNome()+"';");
 		
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
-			if(rs.next()) {}
+			if(rs.next()) {
+				this.Quantita = rs.getInt("Quantita");
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 	public ElementoOrdineDAO(PiattoDAO piatto, int quantita) {
 		Piatto = piatto;

@@ -21,7 +21,6 @@ public class OrdineDAO {
 
 	//costruttore che prende in ingresso la PK
 	public OrdineDAO(int idordine) {
-				
 		this.IDOrdine = idordine;
 		this.Piatti = new ArrayList<ElementoOrdineDAO>();
 		caricaDaDB();
@@ -87,6 +86,26 @@ public class OrdineDAO {
 				cliente.setNome(rs1.getString("c.Nome"));
 				cliente.setCognome(rs1.getString("c.Cognome"));
 				cliente.setIndirizzo(rs1.getString("c.Indirizzo"));
+				
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void caricaPiattiOrdineDaDB() {
+		
+		String query = new String("select * from ordini join elementoordini on idOrdine=Ordine_idOrdine");
+		try {
+			
+			ResultSet rs1 = DBConnectionManager.selectQuery(query);
+			
+			if(rs1.next()) {
+				
+				ElementoOrdineDAO el = new ElementoOrdineDAO(rs1.getInt("Ordine_idOrdine"), rs1.getString("Piatto_Nome"));
+				
+				this.Piatti.add(el);
 				
 			}
 		} catch (ClassNotFoundException | SQLException e) {
