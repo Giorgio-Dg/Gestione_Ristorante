@@ -1,14 +1,40 @@
 package entity;
 
+import database.ElementoOrdineDAO;
+
 public class EntityElementoOrdine {
 	
 	private EntityOrdine Ordine;
 	private EntityPiatto Piatto;
-	private int Quantita;
+	private final int Quantita;
 	
 	public EntityElementoOrdine(EntityOrdine ordine, EntityPiatto piatto, int quantita) {
+		Ordine = ordine;
 		Piatto = piatto;
 		Quantita = quantita;
+	}
+	
+	public EntityElementoOrdine(ElementoOrdineDAO el) {
+		
+		el.caricaDaDB();
+		
+		caricaOrdine(el);
+		
+		caricaPiatto(el);
+		
+		this.Quantita = el.getQuantita();
+	}
+	
+	public void caricaOrdine(ElementoOrdineDAO el) {
+		
+		EntityOrdine ordine = new EntityOrdine(el.getOrdine());		
+		this.Ordine = ordine;
+	}
+	
+	public void caricaPiatto(ElementoOrdineDAO el) {
+		
+		EntityPiatto piatto = new EntityPiatto(el.getPiatto());		
+		this.Piatto = piatto;
 	}
 
 	public EntityPiatto getPiatto() {

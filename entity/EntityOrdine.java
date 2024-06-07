@@ -1,6 +1,7 @@
 package entity;
 
 import database.OrdineDAO;
+
 import java.time.*;
 import java.util.ArrayList;
 
@@ -33,11 +34,10 @@ public class EntityOrdine {
 		ordine.caricaClienteOrdineDaDB();
 		caricaCliente(ordine);
 		
-		//ordine.(); //QUA SERVE CARICA ORDINE PIATTI?? PER L'ARRAYLIST
+		ordine.caricaPiattiOrdineDaDB();
+		caricaPiatti(ordine);
 		
-		//caricaCorsi(studente);
 		
-		//System.out.println("EntityStudente: "+this);
 	}
 	
 	public EntityOrdine(OrdineDAO ordine) {
@@ -49,10 +49,12 @@ public class EntityOrdine {
 		
 		this.Piatti = new ArrayList<EntityElementoOrdine>();
 		
-		//ordine.caricaCorsiStudenteDaDB(); ARRAY DI PIATTI NON LO POSSO FARE NON Cè CARICA
-		//caricaCorsi(studente);
+		
 		ordine.caricaClienteOrdineDaDB();
 		caricaCliente(ordine);
+		
+		ordine.caricaPiattiOrdineDaDB();
+		caricaPiatti(ordine);
 ; 
 	}
 
@@ -63,7 +65,14 @@ public class EntityOrdine {
 		this.Cliente = cliente;
 		
 	}
-
+	
+	public void caricaPiatti(OrdineDAO ordine) {
+		for(int i=0;i<ordine.getPiatti().size();i++) {
+			
+			EntityElementoOrdine piatto = new EntityElementoOrdine(ordine.getPiatti().get(i));
+			this.Piatti.add(piatto);
+		}
+	}
 
 	public int getIDOrdine() {
 		return IDOrdine;
