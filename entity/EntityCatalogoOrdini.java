@@ -51,7 +51,7 @@ public class EntityCatalogoOrdini {
 	    int i = 0;
 	    
 	    while(i<Ordini.size() && ordineAggiornato == false) {
-	        if (Ordini.get(i).getStatoOrdine() == null) {
+	        if (Ordini.get(i).getStatoOrdine() == "") {
 	            Ordini.get(i).setStatoOrdine("In_Preparazione");
 	            ordineAggiornato = true;
 	         // AGGIORNARE DATABASE
