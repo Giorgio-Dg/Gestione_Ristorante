@@ -34,5 +34,12 @@ public class EntityCatalogoOrdini {
 	public static void AggiornaStatoOrdine(int idOrdine, String stato) {
 		Ordini.get(idOrdine).setStatoOrdine(stato);
 	}
+	
+	public void SegnalaOrdineProntoPerConsegna(int idOrdine) {
+		Ordini.get(idOrdine).setStatoOrdine("Pronto_per_Consegna");
+	}
+	
+	//public void AssegnaConsegna() {	
+	//}
 
 }
