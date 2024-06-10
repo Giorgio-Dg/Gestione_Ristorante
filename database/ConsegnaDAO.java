@@ -89,8 +89,7 @@ public class ConsegnaDAO {
 				OrdineDAO ordine = new OrdineDAO();
 				ordine.setIDOrdine(rs.getInt("o.idOrdine"));
 				ordine.setStatoOrdine(rs.getString("o.StatoOrdine"));
-				ordine.setData(rs.getDate("o.Data").toLocalDate());
-				ordine.setOra(rs.getTime("o.Ora").toLocalTime());
+				ordine.setData(rs.getDate("o.Data"));
 				
                 this.Ordine=ordine;
 			}

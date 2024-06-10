@@ -2,15 +2,14 @@ package database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class OrdineDAO {
 	
 	private int IDOrdine;
 	private String StatoOrdine;
-	private LocalDate Data;
-	private LocalTime Ora;
+	private Date Data;
 	private ClienteDAO Cliente;
 	private ArrayList<ElementoOrdineDAO> Piatti;
 	
@@ -37,8 +36,7 @@ public class OrdineDAO {
 				
 				OrdineDAO ordine = new OrdineDAO();
 				ordine.setStatoOrdine(rs.getString("StatoOrdine"));
-				ordine.setData(rs.getDate("Data").toLocalDate());
-				ordine.setOra(rs.getTime("Ora").toLocalTime());
+				ordine.setData(rs.getDate("Data"));
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -59,8 +57,7 @@ public class OrdineDAO {
 				OrdineDAO ordine = new OrdineDAO();
 				ordine.setIDOrdine(rs.getInt("idOrdine"));
 				ordine.setStatoOrdine(rs.getString("StatoOrdine"));
-				ordine.setData(rs.getDate("Data").toLocalDate());
-				ordine.setOra(rs.getTime("Ora").toLocalTime());
+				ordine.setData(rs.getDate("Data"));
 				
 				elenco_ordini.add(ordine);
 			}
@@ -130,21 +127,14 @@ public class OrdineDAO {
 		StatoOrdine = statoOrdine;
 	}
 
-	public LocalDate getData() {
+	public Date getData() {
 		return Data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(Date data) {
 		Data = data;
 	}
 
-	public LocalTime getOra() {
-		return Ora;
-	}
-
-	public void setOra(LocalTime ora) {
-		Ora = ora;
-	}
 
 	public ClienteDAO getCliente() {
 		return Cliente;
