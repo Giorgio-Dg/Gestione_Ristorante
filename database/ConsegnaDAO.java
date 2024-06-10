@@ -2,6 +2,7 @@ package database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ConsegnaDAO {
 	private int IDConsegna;
@@ -33,6 +34,24 @@ public class ConsegnaDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static ArrayList<ConsegnaDAO> caricaTutteConsegneDaDB() {
+		
+		ArrayList<ConsegnaDAO> elenco_corrieri = new ArrayList<ConsegnaDAO>();
+		String query = new String("select * from corriere;");
+		
+		try {
+			ResultSet rs = DBConnectionManager.selectQuery(query);
+			
+			if(rs.next()) {
+				
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return elenco_corrieri;
 	}
 	
 	public void caricaCorriereConsegnaDaDB() {

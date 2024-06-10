@@ -46,7 +46,7 @@ public class OrdineDAO {
 		}
 	}
 	
-	public ArrayList<OrdineDAO> caricaTuttiOrdiniDaDB() {
+	public static ArrayList<OrdineDAO> caricaTuttiOrdiniDaDB() {
 		
 		ArrayList<OrdineDAO> elenco_ordini = new ArrayList<OrdineDAO>();
 		String query = new String("select * from ordine;");

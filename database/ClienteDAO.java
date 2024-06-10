@@ -42,7 +42,7 @@ public class ClienteDAO{
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
-	public ArrayList<ClienteDAO> caricaTuttiClientiDaDB() {
+	public static ArrayList<ClienteDAO> caricaTuttiClientiDaDB() {
 		
 		ArrayList<ClienteDAO> elenco_clienti = new ArrayList<ClienteDAO>();
 		String query = new String("select * from cliente;");
