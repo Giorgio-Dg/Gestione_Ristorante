@@ -39,7 +39,7 @@ public class EntityCatalogoConsegne {
 		EntityElencoCorrieri corrieri = new EntityElencoCorrieri();
 		EntityCorriere corriere = corrieri.TrovaPrimoCorriereDisponibile();
 		
-		if(corriere == null) {
+		if(corriere != null) {
 			consegna.setCorriere(corriere);
 			//aggiungere consegna al DB  E DAOOOOOOOOO
 			return 0;
