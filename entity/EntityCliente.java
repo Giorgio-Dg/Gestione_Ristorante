@@ -68,8 +68,20 @@ public class EntityCliente {
 	}
 	
 	
-	public void EffettuaOrdine(ArrayList<EntityElementoOrdine> el) {
+	public void EffettuaOrdine(ArrayList<EntityElementoOrdine> piatti) {
+		EntityOrdine nuovoOrdine = new EntityOrdine();
 		
+		
+		EntityCatalogoOrdini catalogoOrdini = new EntityCatalogoOrdini();
+		int indice = catalogoOrdini.getOrdini().size() -1;
+		
+		nuovoOrdine.setIDOrdine(indice);
+		nuovoOrdine.setPiatti(piatti);
+		nuovoOrdine.setCliente(this);
+		nuovoOrdine.setStatoOrdine("");
+		
+		
+		catalogoOrdini.getOrdini().add(nuovoOrdine);
 	}
 
 	@Override

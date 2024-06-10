@@ -62,4 +62,25 @@ public class EntityCatalogoOrdini {
 	    return ordineAggiornato;
 	}
 
+	public ArrayList<EntityOrdine> getOrdini() {
+		return Ordini;
+	}
+	
+	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
