@@ -37,7 +37,6 @@ public class EntityOrdine {
 		ordine.caricaPiattiOrdineDaDB();
 		caricaPiatti(ordine);
 		
-		
 	}
 	
 	public EntityOrdine(OrdineDAO ordine) {
@@ -120,6 +119,12 @@ public class EntityOrdine {
 
 	public void setPiatti(ArrayList<EntityElementoOrdine> piatti) {
 		Piatti = piatti;
+	}
+
+	@Override
+	public String toString() {
+		return "EntityOrdine [IDOrdine=" + IDOrdine + ", StatoOrdine=" + StatoOrdine + ", Data=" + Data + ", Ora=" + Ora
+				+ ", Cliente=" + Cliente + ", Piatti=" + Piatti + "]";
 	}
 	
 }

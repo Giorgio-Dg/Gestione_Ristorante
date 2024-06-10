@@ -20,12 +20,8 @@ public class EntityConsegna {
 		
 		this.StatoConsegna = consegna.getStatoConsegna();
 		
-		
-		
 		consegna.caricaCorriereConsegnaDaDB();
 		caricaCorriere(consegna);
-		
-		
 	}
 	
 	public EntityConsegna(ConsegnaDAO consegna) {
@@ -67,7 +63,11 @@ public class EntityConsegna {
 	public void setCorriere(EntityCorriere corriere) {
 		Corriere = corriere;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "EntityConsegna [IDConsegna=" + IDConsegna + ", StatoConsegna=" + StatoConsegna + ", Corriere="
+				+ Corriere + "]";
+	}
 	
 }

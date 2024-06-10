@@ -119,5 +119,11 @@ public class EntityCorriere {
 		}
 		return -1;
 	}
+
+	@Override
+	public String toString() {
+		return "EntityCorriere [IDCorriere=" + IDCorriere + ", Nome=" + Nome + ", Disponibilita=" + Disponibilita
+				+ ", Consegne=" + Consegne + "]";
+	}
 	
 }

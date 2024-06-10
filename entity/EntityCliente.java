@@ -22,11 +22,6 @@ public class EntityCliente {
 		this.Nome = cliente.getNome();
 		this.Cognome = cliente.getCognome();
 		this.Indirizzo = cliente.getIndirizzo();
-		
-		//System.out.println("EntityCliente: "+cliente.toString());
-		
-		// cliente non ha riferimenti ad altre classi
-		
 	}
 	
 			
@@ -77,4 +72,9 @@ public class EntityCliente {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "EntityCliente [IDCliente=" + IDCliente + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Indirizzo="
+				+ Indirizzo + "]";
+	}
 }
