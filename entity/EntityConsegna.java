@@ -6,7 +6,7 @@ public class EntityConsegna {
 	private int IDConsegna;
 	private String StatoConsegna;
 	private EntityCorriere Corriere;
-	//riferimento a ordine
+	private EntityOrdine Ordine;
 	
 	public EntityConsegna() {
 		super();
@@ -22,6 +22,9 @@ public class EntityConsegna {
 		
 		consegna.caricaCorriereConsegnaDaDB();
 		caricaCorriere(consegna);
+		
+		consegna.caricaOrdineConsegnaDaDB();
+		caricaOrdine(consegna);
 	}
 	
 	public EntityConsegna(ConsegnaDAO consegna) {
@@ -30,13 +33,22 @@ public class EntityConsegna {
 		this.StatoConsegna = consegna.getStatoConsegna();
 		
 		consegna.caricaCorriereConsegnaDaDB();
-		caricaCorriere(consegna); 
+		caricaCorriere(consegna);
+		
+		consegna.caricaOrdineConsegnaDaDB();
+		caricaOrdine(consegna);
+
 	}
 
 	
 	public void caricaCorriere(ConsegnaDAO consegna){
 		EntityCorriere corriere = new EntityCorriere(consegna.getCorriere());		
 		this.Corriere = corriere;
+	}
+	
+	public void caricaOrdine(ConsegnaDAO consegna) {
+		EntityOrdine ordine = new EntityOrdine(consegna.getOrdine());
+		this.Ordine = ordine;
 	}
 
 
@@ -62,6 +74,14 @@ public class EntityConsegna {
 
 	public void setCorriere(EntityCorriere corriere) {
 		Corriere = corriere;
+	}
+
+	public EntityOrdine getOrdine() {
+		return Ordine;
+	}
+
+	public void setOrdine(EntityOrdine ordine) {
+		Ordine = ordine;
 	}
 
 	@Override
