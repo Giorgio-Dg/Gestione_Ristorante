@@ -33,13 +33,33 @@ public class EntityCatalogoOrdini {
 	
 	public static void AggiornaStatoOrdine(int idOrdine, String stato) {
 		Ordini.get(idOrdine).setStatoOrdine(stato);
+		// AGGIORNARE DATABASE
 	}
 	
 	public void SegnalaOrdineProntoPerConsegna(int idOrdine) {
 		Ordini.get(idOrdine).setStatoOrdine("Pronto_per_Consegna");
+		// AGGIORNARE DATABASE
+		
+		EntityCatalogoConsegne catalogoconsegne = new EntityCatalogoConsegne();
+		catalogoconsegne.AssegnaConsegna();
 	}
 	
-	//public void AssegnaConsegna() {	
-	//}
+	public boolean PrendiOrdineInCarico() {
+	    if (Ordini.size() == 0) return false;
+
+	    boolean ordineAggiornato = false;
+	    int i = 0;
+	    
+	    while(i<Ordini.size() && ordineAggiornato == false) {
+	        if (Ordini.get(i).getStatoOrdine() == null) {
+	            Ordini.get(i).setStatoOrdine("In_Preparazione");
+	            ordineAggiornato = true;
+	         // AGGIORNARE DATABASE
+	        }
+	        i++;
+	    }
+	    
+	    return ordineAggiornato;
+	}
 
 }
