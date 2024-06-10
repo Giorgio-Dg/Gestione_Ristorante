@@ -21,8 +21,6 @@ public class EntityCatalogoConsegne {
 		
 		consegne = ConsegnaDAO.caricaTutteConsegneDaDB();
 		
-		
-		
 		for(int i=0;i<consegne.size();i++) {
 			
 			EntityConsegna consegna = new EntityConsegna(consegne.get(i));
@@ -40,10 +38,13 @@ public class EntityCatalogoConsegne {
 		
 		EntityElencoCorrieri corrieri = new EntityElencoCorrieri();
 		EntityCorriere corriere = corrieri.TrovaPrimoCorriereDisponibile();
-		consegna.setCorriere(corriere);
 		
-		return 0;
-		
+		if(corriere == null) {
+			consegna.setCorriere(corriere);
+			//aggiungere consegna al DB  E DAOOOOOOOOO
+			return 0;
+		}
+		return -1;
 	}
 
 }
