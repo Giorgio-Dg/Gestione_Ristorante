@@ -84,6 +84,8 @@ public class EntityCliente {
 		nuovoOrdine.setData(now);
 		
 		catalogoOrdini.getOrdini().add(nuovoOrdine);
+		
+		//Aggiornare DATABASE
 	}
 
 	@Override
