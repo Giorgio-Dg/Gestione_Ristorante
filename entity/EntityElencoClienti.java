@@ -4,20 +4,29 @@ import java.util.ArrayList;
 import database.ClienteDAO;
 
 public class EntityElencoClienti {
+	
+	private ArrayList<EntityCliente> Clienti;
 
 	public EntityElencoClienti() {
-		// TODO Auto-generated constructor stub
+		super();
+		this.Clienti = new ArrayList<EntityCliente>();
+		elencoClienti();
 	}
 	
-	public ArrayList<ClienteDAO> elencoClienti(){
+	public void elencoClienti(){
+		
+		ArrayList<ClienteDAO> clienti = new ArrayList<ClienteDAO>();
+		
+		clienti = ClienteDAO.caricaTuttiClientiDaDB();
 		
 		
-		ArrayList<ClienteDAO> clienti = new ArrayList<ClienteDAO>();		
-						
-		//clienti = ClienteDAO.caricaTuttiClientidaDB();
 		
-				
-		return clienti;
+		for(int i=0;i<clienti.size();i++) {
+			
+			EntityCliente cliente = new EntityCliente(clienti.get(i));
+			this.Clienti.add(cliente);
+		}
+
 	}
 	
 }
