@@ -1,16 +1,14 @@
 package entity;
 
 import database.OrdineDAO;
-
-import java.time.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class EntityOrdine {
 	
 	private int IDOrdine;
 	private String StatoOrdine;
-	private LocalDate Data;
-	private LocalTime Ora;
+	private Date Data;
 	private EntityCliente Cliente;
 	private ArrayList<EntityElementoOrdine> Piatti;
 	
@@ -27,7 +25,6 @@ public class EntityOrdine {
 		
 		this.StatoOrdine = ordine.getStatoOrdine();
 		this.Data = ordine.getData();
-		this.Ora = ordine.getOra();
 		
 		this.Piatti = new ArrayList<EntityElementoOrdine>();
 		
@@ -44,7 +41,6 @@ public class EntityOrdine {
 		this.IDOrdine = ordine.getIDOrdine();
 		this.StatoOrdine = ordine.getStatoOrdine();
 		this.Data = ordine.getData();
-		this.Ora = ordine.getOra();
 		
 		this.Piatti = new ArrayList<EntityElementoOrdine>();
 		
@@ -89,20 +85,12 @@ public class EntityOrdine {
 		StatoOrdine = statoOrdine;
 	}
 
-	public LocalDate getData() {
+	public Date getData() {
 		return Data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(Date data) {
 		Data = data;
-	}
-
-	public LocalTime getOra() {
-		return Ora;
-	}
-
-	public void setOra(LocalTime ora) {
-		Ora = ora;
 	}
 
 	public EntityCliente getCliente() {

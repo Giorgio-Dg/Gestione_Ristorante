@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import database.ClienteDAO;
 
@@ -79,7 +80,8 @@ public class EntityCliente {
 		nuovoOrdine.setPiatti(piatti);
 		nuovoOrdine.setCliente(this);
 		nuovoOrdine.setStatoOrdine("");
-		
+		Date now =new Date();
+		nuovoOrdine.setData(now);
 		
 		catalogoOrdini.getOrdini().add(nuovoOrdine);
 	}
