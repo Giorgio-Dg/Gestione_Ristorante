@@ -20,21 +20,19 @@ public class EntityCorriere {
 		
 		this.IDCorriere = idCorriere;
 		
-		CorriereDAO corriere = new CorriereDAO(idCorriere); //carico lo studente dal DB col costruttore
+		CorriereDAO corriere = new CorriereDAO(idCorriere);
 		
 		this.Nome = corriere.getNome();
 		this.Disponibilita = corriere.getDisponibilita();
 		
 		this.Consegne = new ArrayList<EntityConsegna>();
 		
-		//System.out.println("EntityStudente: "+studente.toString());
-		
 		
 		corriere.caricaConsegneCorriereDaDB();
 		
 		caricaConsegne(corriere);
 		
-		//System.out.println("EntityStudente: "+this);
+		
 	}
 	
 	public EntityCorriere(CorriereDAO corriere) {
@@ -94,8 +92,24 @@ public class EntityCorriere {
 		Consegne = consegne;
 	}
 	
-	public void AggiornaStatoConsegna(int idConsegna) {
+	public int AggiornaStatoConsegna(int idConsegna) {
 		
+		if(trovaconsegna(idConsegna) == -1) {return -1;}
+		
+		else {
+		
+			int myidConsegna = trovaconsegna(idConsegna);
+			if(Consegne.get(myidConsegna).getStatoConsegna() == "Pronto_per_Consegna") {
+				Consegne.get(myidConsegna).setStatoConsegna("In_Consegna");
+				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "In_Consegna");    //DA FARE  come parametro sicuro la stringa
+			}
+			else {
+				Consegne.get(myidConsegna).setStatoConsegna("Consegnato");
+				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "Consegnato");    //DA FARE  e poi devo dare l'idOrdine !!!
+	
+			}
+			return 0;
+		}
 	}
 	
 	public int trovaconsegna(int idConsegna) {

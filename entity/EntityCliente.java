@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.ArrayList;
+
 import database.ClienteDAO;
 
 public class EntityCliente {
@@ -68,6 +70,11 @@ public class EntityCliente {
 
 	public void setIndirizzo(String indirizzo) {
 		Indirizzo = indirizzo;
+	}
+	
+	
+	public void EffettuaOrdine(ArrayList<EntityElementoOrdine> el) {
+		
 	}
 
 }

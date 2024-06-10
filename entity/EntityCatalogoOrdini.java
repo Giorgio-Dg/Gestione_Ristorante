@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import database.OrdineDAO;
 
 public class EntityCatalogoOrdini {
-	private ArrayList<EntityOrdine> Ordini;
+	private static ArrayList<EntityOrdine> Ordini;
 
 
 
 	public EntityCatalogoOrdini() {
 		super();
-		this.Ordini = new ArrayList<EntityOrdine>();
+		Ordini = new ArrayList<EntityOrdine>();
 		catalogoOrdini();
 }
 	
@@ -26,9 +26,13 @@ public class EntityCatalogoOrdini {
 		for(int i=0;i<ordini.size();i++) {
 			
 			EntityOrdine ordine = new EntityOrdine(ordini.get(i));
-			this.Ordini.add(ordine);
+			Ordini.add(ordine);
 		}
 
+	}
+	
+	public static void AggiornaStatoOrdine(int idOrdine, String stato) {
+		Ordini.get(idOrdine).setStatoOrdine(stato);
 	}
 
 }

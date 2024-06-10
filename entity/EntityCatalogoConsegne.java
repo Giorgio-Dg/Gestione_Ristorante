@@ -30,5 +30,20 @@ public class EntityCatalogoConsegne {
 		}
 
 	}
+	
+	public int AssegnaConsegna() {
+		
+		EntityConsegna consegna = new EntityConsegna();
+		consegna.setStatoConsegna("Pronto_per_Consegna");
+		
+		Consegne.add(consegna);
+		
+		if(TrovaPrimoCorriereDisponibile() == -1) return -1;
+		else {
+			Consegne.get(TrovaPrimoCorriereDisponibile())
+		}
+		
+		
+	}
 
 }

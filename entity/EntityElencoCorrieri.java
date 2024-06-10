@@ -29,4 +29,18 @@ public class EntityElencoCorrieri {
 
 	}
 	
+	public int TrovaPrimoCorriereDisponibile() {
+		
+		for(int i=0; i<Corrieri.size(); i++) {
+			if(Corrieri.get(i).getDisponibilita() > 0) {
+				
+				
+				Corrieri.get(i).setDisponibilita(Corrieri.get(i).getDisponibilita() -1);
+				return Corrieri.get(i).getIDCorriere();
+			}
+		}
+		
+		return -1;
+	}
+	
 }

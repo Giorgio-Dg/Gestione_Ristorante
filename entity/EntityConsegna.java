@@ -6,6 +6,7 @@ public class EntityConsegna {
 	private int IDConsegna;
 	private String StatoConsegna;
 	private EntityCorriere Corriere;
+	//riferimento a ordine
 	
 	public EntityConsegna() {
 		super();
@@ -19,12 +20,12 @@ public class EntityConsegna {
 		
 		this.StatoConsegna = consegna.getStatoConsegna();
 		
-		//System.out.println("EntityStudente: "+studente.toString());
+		
 		
 		consegna.caricaCorriereConsegnaDaDB();
 		caricaCorriere(consegna);
 		
-		//System.out.println("EntityStudente: "+this);
+		
 	}
 	
 	public EntityConsegna(ConsegnaDAO consegna) {
@@ -66,5 +67,7 @@ public class EntityConsegna {
 	public void setCorriere(EntityCorriere corriere) {
 		Corriere = corriere;
 	}
+	
+	
 	
 }
