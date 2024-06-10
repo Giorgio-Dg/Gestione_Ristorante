@@ -94,4 +94,16 @@ public class EntityCorriere {
 		Consegne = consegne;
 	}
 	
+	public void AggiornaStatoConsegna(int idConsegna) {
+		
+	}
+	
+	public int trovaconsegna(int idConsegna) {
+		
+		for(int i=0; i<Consegne.size(); i++) {
+			if(Consegne.get(i).getIDConsegna() == idConsegna) return i;
+		}
+		return -1;
+	}
+	
 }
