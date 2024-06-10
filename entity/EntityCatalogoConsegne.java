@@ -31,18 +31,18 @@ public class EntityCatalogoConsegne {
 
 	}
 	
-	public int AssegnaConsegna() {
+	public int AssegnaConsegna(/*parametri da dare a consegna?*/) {
 		
 		EntityConsegna consegna = new EntityConsegna();
 		consegna.setStatoConsegna("Pronto_per_Consegna");
 		
 		Consegne.add(consegna);
 		
-		if(TrovaPrimoCorriereDisponibile() == -1) return -1;
-		else {
-			Consegne.get(TrovaPrimoCorriereDisponibile())
-		}
+		EntityElencoCorrieri corrieri = new EntityElencoCorrieri();
+		EntityCorriere corriere = corrieri.TrovaPrimoCorriereDisponibile();
+		consegna.setCorriere(corriere);
 		
+		return 0;
 		
 	}
 

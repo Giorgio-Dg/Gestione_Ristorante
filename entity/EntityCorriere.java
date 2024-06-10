@@ -94,11 +94,11 @@ public class EntityCorriere {
 	
 	public int AggiornaStatoConsegna(int idConsegna) {
 		
-		if(trovaconsegna(idConsegna) == -1) {return -1;}
+		if(trovaConsegna(idConsegna) == -1) {return -1;}
 		
 		else {
 		
-			int myidConsegna = trovaconsegna(idConsegna);
+			int myidConsegna = trovaConsegna(idConsegna);
 			if(Consegne.get(myidConsegna).getStatoConsegna() == "Pronto_per_Consegna") {
 				Consegne.get(myidConsegna).setStatoConsegna("In_Consegna");
 				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "In_Consegna");    //DA FARE  come parametro sicuro la stringa
@@ -112,7 +112,7 @@ public class EntityCorriere {
 		}
 	}
 	
-	public int trovaconsegna(int idConsegna) {
+	public int trovaConsegna(int idConsegna) {
 		
 		for(int i=0; i<Consegne.size(); i++) {
 			if(Consegne.get(i).getIDConsegna() == idConsegna) return i;
