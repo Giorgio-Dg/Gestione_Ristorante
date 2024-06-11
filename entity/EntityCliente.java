@@ -5,6 +5,8 @@ import java.util.Date;
 
 import database.ClienteDAO;
 import database.OrdineDAO;
+import database.PiattoDAO;
+import database.ElementoOrdineDAO;
 
 public class EntityCliente {
 	
@@ -98,6 +100,34 @@ public class EntityCliente {
 		
 		return i;
 	}
+	
+	public void salvaClientePiattiInOrdineDAO(OrdineDAO nuovoOrdine, EntityCliente cliente, ArrayList<EntityElementoOrdine> piatti) {
+		salvaCliente(cliente, nuovoOrdine.getCliente());
+		salvaPiatti();
+		
+	}
+	
+	public void salvaCliente(EntityCliente cliente, ClienteDAO clienteDAO) {
+		clienteDAO.setIDCliente(cliente.getIDCliente());
+		clienteDAO.setNome(cliente.getNome());
+		clienteDAO.setCognome(cliente.getCognome());
+		clienteDAO.setIndirizzo(cliente.getIndirizzo());
+	}
+	
+	public void salvaPiatti(ArrayList<EntityElementoOrdine> piatti, ArrayList<ElementoOrdineDAO> piattiDAO) {
+		for(int i=0;i<piatti.size();i++) {
+			
+			OrdineDAO newordine = new OrdineDAO();
+			newordine.setIDOrdine(piatti.get(i).getOrdine().getIDOrdine());
+			PiattoDAO newpiatto = new PiattoDAO();
+			newpiatto
+			
+			
+			ElementoOrdineDAO elemento = new ElementoOrdineDAO(newordine, );
+		}
+	}
+	
+	
 
 	@Override
 	public String toString() {
@@ -105,3 +135,14 @@ public class EntityCliente {
 				+ Indirizzo + "]";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+

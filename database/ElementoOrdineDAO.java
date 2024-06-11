@@ -36,7 +36,8 @@ public class ElementoOrdineDAO {
 		}
 	}
 	
-	public ElementoOrdineDAO(PiattoDAO piatto, int quantita) {
+	public ElementoOrdineDAO(OrdineDAO ordine, PiattoDAO piatto, int quantita) {
+		Ordine = ordine;
 		Piatto = piatto;
 		Quantita = quantita;
 	}
