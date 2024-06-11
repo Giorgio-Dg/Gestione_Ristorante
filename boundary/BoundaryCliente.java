@@ -54,17 +54,6 @@ public class BoundaryCliente extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Effettua Ordine");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-				//ControllerCliente.EffettuaOrdine(idcliente, piatti, qta);
-			}
-		});
-		btnNewButton.setBounds(121, 215, 175, 23);
-		contentPane.add(btnNewButton);
-		
 		JLabel lblNewLabel = new JLabel("Nome Piatto");
 		lblNewLabel.setBounds(41, 14, 99, 14);
 		contentPane.add(lblNewLabel);
@@ -119,5 +108,16 @@ public class BoundaryCliente extends JFrame {
 		textField_4.setColumns(10);
 		textField_4.setBounds(287, 142, 86, 20);
 		contentPane.add(textField_4);
+		
+		JButton btnNewButton = new JButton("Effettua Ordine");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				//ControllerCliente.EffettuaOrdine(idcliente, piatti, qta);
+			}
+		});
+		btnNewButton.setBounds(121, 215, 175, 23);
+		contentPane.add(btnNewButton);
 	}
 }
