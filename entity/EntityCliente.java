@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import database.ClienteDAO;
+import database.OrdineDAO;
 
 public class EntityCliente {
 	
@@ -72,7 +73,6 @@ public class EntityCliente {
 	public void EffettuaOrdine(ArrayList<EntityElementoOrdine> piatti) {
 		EntityOrdine nuovoOrdine = new EntityOrdine();
 		
-		
 		EntityCatalogoOrdini catalogoOrdini = new EntityCatalogoOrdini();
 		int indice = catalogoOrdini.getOrdini().size() -1;
 		
@@ -85,7 +85,12 @@ public class EntityCliente {
 		
 		catalogoOrdini.getOrdini().add(nuovoOrdine);
 		
-		//Aggiornare DATABASE
+		OrdineDAO neword = new OrdineDAO();
+		neword.setIDOrdine(nuovoOrdine.getIDOrdine());
+		neword.setStatoOrdine(nuovoOrdine.getStatoOrdine());
+		neword.setData(nuovoOrdine.getData());
+		
+		//neword.scriviInDB();
 	}
 
 	@Override

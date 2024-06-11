@@ -41,7 +41,6 @@ public class ClienteDAO{
 		}
 	}
 	
-	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static ArrayList<ClienteDAO> caricaTuttiClientiDaDB() {
 		
 		ArrayList<ClienteDAO> elenco_clienti = new ArrayList<ClienteDAO>();
@@ -65,7 +64,6 @@ public class ClienteDAO{
 		}
 		return elenco_clienti;
 	}
-	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public int getIDCliente() {
 		return IDCliente;
