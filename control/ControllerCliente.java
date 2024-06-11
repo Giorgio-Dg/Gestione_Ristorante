@@ -10,7 +10,7 @@ import entity.EntityPiatto;
 
 public class ControllerCliente {
 	
-	public String EffettuaOrdine(int idcliente, ArrayList<String> Nomi_piatti, ArrayList<Integer> Qta){
+	public static String EffettuaOrdine(int idcliente, ArrayList<String> Nomi_piatti, ArrayList<Integer> Qta){
 		
 		EntityOrdine nuovoOrdine = new EntityOrdine();
 		EntityCatalogoOrdini catalogoOrdini = new EntityCatalogoOrdini();
