@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.JScrollBar;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class BoundaryCliente extends JFrame {
 
@@ -26,6 +27,7 @@ public class BoundaryCliente extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	private JTextField textField_5;
 
 	/**
 	 * Launch the application.
@@ -109,15 +111,63 @@ public class BoundaryCliente extends JFrame {
 		textField_4.setBounds(287, 142, 86, 20);
 		contentPane.add(textField_4);
 		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(183, 190, 190, 14);
+		contentPane.add(lblNewLabel_2);
+		lblNewLabel_2.setVisible(false);
+		
+		JLabel lblNewLabel_3 = new JLabel("ID Cliente");
+		lblNewLabel_3.setBounds(34, 200, 86, 14);
+		contentPane.add(lblNewLabel_3);
+		
 		JButton btnNewButton = new JButton("Effettua Ordine");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				ArrayList<String> piatti = new ArrayList<String>();
+				ArrayList<Integer> qta = new ArrayList<Integer>();
 				
-				//ControllerCliente.EffettuaOrdine(idcliente, piatti, qta);
+				if(!(textField.getText().equals(""))) {
+					piatti.add(menu.get(0));
+					qta.add(Integer.parseInt(textField.getText()));
+				}
+				if(!(textField_1.getText().equals(""))) {
+					piatti.add(menu.get(1));
+					qta.add(Integer.parseInt(textField_1.getText()));
+				}
+				if(!(textField_2.getText().equals(""))) {
+					piatti.add(menu.get(2));
+					qta.add(Integer.parseInt(textField_2.getText()));
+				}
+				if(!(textField_3.getText().equals(""))) {
+					piatti.add(menu.get(3));
+					qta.add(Integer.parseInt(textField_3.getText()));
+				}
+				if(!(textField_4.getText().equals(""))) {
+					piatti.add(menu.get(4));
+					qta.add(Integer.parseInt(textField_4.getText()));
+				}
+				
+				if(piatti.isEmpty()) {
+					lblNewLabel_2.setForeground(Color.RED);
+					lblNewLabel_2.setText("Nessun piatto selezionato");
+					lblNewLabel_2.setVisible(true);
+				}
+				else {
+					//Integer idcliente = Integer.parseInt(lblNewLabel_3.getText());
+					String op= ControllerCliente.EffettuaOrdine(1/*idcliente*/, piatti, qta);
+					lblNewLabel_2.setText(op);
+					lblNewLabel_2.setVisible(true);
+				}
 			}
 		});
-		btnNewButton.setBounds(121, 215, 175, 23);
+		btnNewButton.setBounds(198, 215, 175, 23);
 		contentPane.add(btnNewButton);
+		
+		textField_5 = new JTextField();
+		textField_5.setBounds(34, 216, 86, 20);
+		contentPane.add(textField_5);
+		textField_5.setColumns(10);
+		
 	}
 }

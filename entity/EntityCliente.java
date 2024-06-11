@@ -79,7 +79,7 @@ public class EntityCliente {
 		neword.setStatoOrdine(nuovoOrdine.getStatoOrdine());
 		neword.setData(nuovoOrdine.getData());
 		
-		salvaClientePiattiInOrdineDAO(neword, nuovoOrdine.getCliente(), piatti);
+		salvaClientePiattiInOrdineDAO(neword, this, piatti); //this o nuovoOrdine.getCliente()???
 
 		for(int i=0;i<neword.getPiatti().size();i++) {
 			op = neword.getPiatti().get(i).salvaInDB();
