@@ -72,24 +72,7 @@ public class EntityCliente {
 	}
 	
 	
-	public int EffettuaOrdine(ArrayList<EntityElementoOrdine> piatti) {
-		EntityOrdine nuovoOrdine = new EntityOrdine();
-		
-		EntityCatalogoOrdini catalogoOrdini = new EntityCatalogoOrdini();
-		int indice = catalogoOrdini.getOrdini().size() -1;
-		
-		nuovoOrdine.setIDOrdine(indice);
-		nuovoOrdine.setPiatti(piatti);
-		nuovoOrdine.setCliente(this);
-		nuovoOrdine.setStatoOrdine("");
-		Date now =new Date();
-		nuovoOrdine.setData(now);
-		
-		for(int i=0;i<piatti.size();i++) {
-			//piatti.get(i).//come setto l'ordine in ElementoOrdine
-		}
-		
-		catalogoOrdini.getOrdini().add(nuovoOrdine);
+	public int EffettuaOrdine(EntityOrdine nuovoOrdine, ArrayList<EntityElementoOrdine> piatti) {
 		
 		OrdineDAO neword = new OrdineDAO();
 		neword.setIDOrdine(nuovoOrdine.getIDOrdine());
@@ -99,8 +82,8 @@ public class EntityCliente {
 		int i = neword.salvaInDB();
 		
 		//salvare anche i dati della classe associativa ElementoOrdine
-		
-		//salvare anche elemento ordine in db 
+		//convertire Entityelord in elordDAO
+		//salvare anche elemento ordine in db "elementoordinedao.salvaInDB();"
 		
 		return i;
 	}

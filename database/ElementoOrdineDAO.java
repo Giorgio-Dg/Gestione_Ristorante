@@ -45,7 +45,7 @@ public class ElementoOrdineDAO {
 	public int salvaInDB(){
 		int ret = 0;
 		
-		String query = "INSERT INTO ordine(idOrdine,StatoOrdine,Data,Cliente_idCliente) VALUES ('"+this.IDOrdine+"',"+"'"+this.StatoOrdine+"','"+this.Data+"','"+this.Cliente.getIDCliente()+"')"; 
+		String query = "INSERT INTO elementoordine(Ordine_idOrdine,Piatto_Nome,Quantita) VALUES ('"+this.Ordine.getIDOrdine()+"',"+"'"+this.Piatto.getNome()+"','"+this.Quantita+"')"; 
 		System.out.println(query);
 		try {
 			
