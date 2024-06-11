@@ -15,10 +15,11 @@ public class ControllerCliente {
 		EntityOrdine nuovoOrdine = new EntityOrdine();
 		EntityCatalogoOrdini catalogoOrdini = new EntityCatalogoOrdini();
 		int indice = catalogoOrdini.getOrdini().size() - 1;
-		
 		nuovoOrdine.setIDOrdine(indice);
+		
 		EntityCliente cliente= new EntityCliente(idcliente);
 		nuovoOrdine.setCliente(cliente);
+		
 		nuovoOrdine.setStatoOrdine("");
 		Date now =new Date();
 		nuovoOrdine.setData(now);
