@@ -32,7 +32,7 @@ public class PiattoDAO {
 		}
 	}
 	
-	public ArrayList<PiattoDAO> caricaTuttiPiattiDaDB() {
+	public static ArrayList<PiattoDAO> caricaTuttiPiattiDaDB() {
 		
 		ArrayList<PiattoDAO> elenco_piatti = new ArrayList<PiattoDAO>();
 		String query = new String("select * from piatto;");
