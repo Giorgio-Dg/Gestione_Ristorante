@@ -42,19 +42,20 @@ public class ElementoOrdineDAO {
 		Quantita = quantita;
 	}
 
-	public int salvaInDB(){
-		int ret = 0;
+	public boolean salvaInDB(){
+		boolean ret;
 		
 		String query = "INSERT INTO elementoordine(Ordine_idOrdine,Piatto_Nome,Quantita) VALUES ('"+this.Ordine.getIDOrdine()+"',"+"'"+this.Piatto.getNome()+"','"+this.Quantita+"')"; 
 		System.out.println(query);
 		try {
 			
-			ret = DBConnectionManager.updateQuery(query);
+			DBConnectionManager.updateQuery(query);
+			ret = true;
 			
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
-			ret = -1;
+			ret = false;
 		}
 		
 		return ret;

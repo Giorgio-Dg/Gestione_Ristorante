@@ -1,7 +1,6 @@
 package entity;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import database.ClienteDAO;
 import database.OrdineDAO;
@@ -72,20 +71,23 @@ public class EntityCliente {
 	}
 	
 	
-	public int EffettuaOrdine(EntityOrdine nuovoOrdine, ArrayList<EntityElementoOrdine> piatti) {
+	public boolean EffettuaOrdine(EntityOrdine nuovoOrdine, ArrayList<EntityElementoOrdine> piatti) {
+		boolean op = false,op1;
 		
 		OrdineDAO neword = new OrdineDAO();
 		neword.setIDOrdine(nuovoOrdine.getIDOrdine());
 		neword.setStatoOrdine(nuovoOrdine.getStatoOrdine());
 		neword.setData(nuovoOrdine.getData());
 		
-		int i = neword.salvaInDB();
+		salvaClientePiattiInOrdineDAO(neword, nuovoOrdine.getCliente(), piatti);
+
+		for(int i=0;i<neword.getPiatti().size();i++) {
+			op = neword.getPiatti().get(i).salvaInDB();
+		}
 		
-		//salvare anche i dati della classe associativa ElementoOrdine
-		//convertire Entityelord in elordDAO
-		//salvare anche elemento ordine in db "elementoordinedao.salvaInDB();"
+		op1 = neword.salvaInDB();
 		
-		return i;
+		return op && op1;
 	}
 	
 	public void salvaClientePiattiInOrdineDAO(OrdineDAO nuovoOrdine, EntityCliente cliente, ArrayList<EntityElementoOrdine> piatti) {
@@ -109,10 +111,10 @@ public class EntityCliente {
 			piatto.setDescrizione(piatti.get(i).getPiatto().getDescrizione());
 			
 			ElementoOrdineDAO elemento = new ElementoOrdineDAO(nuovoOrdine, piatto, piatti.get(i).getQuantita());
+			
+			piattiDAO.add(elemento);
 		}
 	}
-	
-	
 
 	@Override
 	public String toString() {
