@@ -35,8 +35,12 @@ public class ControllerCliente {
 		
 		catalogoOrdini.getOrdini().add(nuovoOrdine);
 		
-		cliente.EffettuaOrdine(nuovoOrdine, piatti);
+		boolean ret = cliente.EffettuaOrdine(nuovoOrdine, piatti);
 		
-		return "Ordine effettuato correttamente";
+		if(ret) return "Ordine effettuato correttamente";
+		else {
+			//rimuovere ordine da catalogo e vedere se da altra parte
+			return "Errore durante l'ordinazione, ordine non effettuato";
+		}
 	}
 }
