@@ -99,13 +99,13 @@ public class EntityCorriere {
 		else {
 		
 			int myidConsegna = trovaConsegna(idConsegna);
-			if(Consegne.get(myidConsegna).getStatoConsegna() == "Pronto_per_Consegna") {
-				Consegne.get(myidConsegna).setStatoConsegna("In_Consegna");
-				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "In_Consegna");    //DA FARE  come parametro sicuro la stringa
+			if(Consegne.get(myidConsegna).getStatoConsegna() == "Pronto per consegna") {
+				Consegne.get(myidConsegna).setStatoConsegna("In consegna");
+				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "In consegna");  
 			}
 			else {
 				Consegne.get(myidConsegna).setStatoConsegna("Consegnato");
-				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "Consegnato");    //DA FARE  e poi devo dare l'idOrdine !!!
+				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "Consegnato");    
 	
 			}
 			return 0;

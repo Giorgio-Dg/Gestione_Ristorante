@@ -80,7 +80,7 @@ public class ConsegnaDAO {
 	
 	public void caricaOrdineConsegnaDaDB() {
 		
-		String query = new String("select * from ordini o join consegne c on o.idOrdine = c.Ordine_idOrdine)" );
+		String query = new String("select * from ordine o join consegna c on o.idOrdine = c.Ordine_idOrdine)" );
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
@@ -100,6 +100,36 @@ public class ConsegnaDAO {
 		}
 	}
 	
+	public boolean salvaInDB(){
+		boolean ret;
+		
+		String query = "INSERT INTO consegna(idConsegna,StatoConsegna,Ordine_idOrdine) VALUES ('"+this.IDConsegna+"',"+"'"+this.StatoConsegna+"','"+this.Ordine.getIDOrdine()+"')"; 
+		System.out.println(query);
+		try {
+			
+			DBConnectionManager.updateQuery(query);
+			ret = true;
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			ret = false;
+		}
+		
+		return ret;
+	}
+	
+	public void aggiornaCorriereInDB() {
+		String query = "UPDATE consegna SET Corriere_idCorriere ='"+this.Corriere.getIDCorriere()+"';"; 
+		System.out.println(query);
+		try {
+			
+			DBConnectionManager.updateQuery(query);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public int getIDConsegna() {
 		return IDConsegna;

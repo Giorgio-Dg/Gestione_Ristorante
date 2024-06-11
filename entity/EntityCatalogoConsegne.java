@@ -3,6 +3,8 @@ package entity;
 import java.util.ArrayList;
 
 import database.ConsegnaDAO;
+import database.CorriereDAO;
+import database.OrdineDAO;
 
 public class EntityCatalogoConsegne {
 	private ArrayList<EntityConsegna> Consegne;
@@ -29,19 +31,42 @@ public class EntityCatalogoConsegne {
 
 	}
 	
-	public int AssegnaConsegna(/*parametri da dare a consegna?*/) {
-		
+	public EntityConsegna creaConsegna(int idordine, String stato) {
 		EntityConsegna consegna = new EntityConsegna();
-		consegna.setStatoConsegna("Pronto_per_Consegna");
+		
+		//per far coincidere gli id e gli indici degli elenchi
+		consegna.setIDConsegna(idordine);
+		consegna.setStatoConsegna(stato);
+		
+		EntityOrdine ordine = new EntityOrdine(idordine);
+		consegna.setOrdine(ordine);
 		
 		Consegne.add(consegna);
+	
+		ConsegnaDAO consegnadao = new ConsegnaDAO();
+		consegnadao.setIDConsegna(consegna.getIDConsegna());
+		consegnadao.setStatoConsegna(consegna.getStatoConsegna());
 		
+		OrdineDAO ordinedao = new OrdineDAO(idordine);
+		consegnadao.setOrdine(ordinedao);
+		
+		consegnadao.salvaInDB();
+		
+		return consegna;
+	}
+	
+	public int AssegnaConsegna(EntityConsegna consegna) {
 		EntityElencoCorrieri corrieri = new EntityElencoCorrieri();
 		EntityCorriere corriere = corrieri.TrovaPrimoCorriereDisponibile();
-		
 		if(corriere != null) {
 			consegna.setCorriere(corriere);
-			//aggiungere consegna al DB  E DAOOOOOOOOO
+			
+			CorriereDAO corrieredao= new CorriereDAO(corriere.getIDCorriere());
+			ConsegnaDAO consegnadao = new ConsegnaDAO(consegna.getIDConsegna());
+			
+			consegnadao.setCorriere(corrieredao);
+			consegnadao.aggiornaCorriereInDB();
+			
 			return 0;
 		}
 		return -1;

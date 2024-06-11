@@ -32,29 +32,39 @@ public class EntityCatalogoOrdini {
 	}
 	
 	public static void AggiornaStatoOrdine(int idOrdine, String stato) {
+		/*accedo all'elemento di indice pari all'idordine poichè gli id agli ordini (ed anche alle consegne) sono
+		  sono assegnati con valori sequenziali in base al numero di elementi nell'array list*/
+		
 		Ordini.get(idOrdine).setStatoOrdine(stato);
-		// AGGIORNARE DATABASE
+		OrdineDAO ordine = new OrdineDAO(idOrdine);
+        ordine.aggiornaStatoInDB(stato);
 	}
 	
-	public void SegnalaOrdineProntoPerConsegna(int idOrdine) {
-		Ordini.get(idOrdine).setStatoOrdine("Pronto_per_Consegna");
-		// AGGIORNARE DATABASE
+	public int SegnalaOrdineProntoPerConsegna(int idOrdine) {
+		String stato = "Pronto per consegna";
+		Ordini.get(idOrdine).setStatoOrdine(stato);
+		OrdineDAO ordine = new OrdineDAO(idOrdine);
+        ordine.aggiornaStatoInDB(stato);
 		
 		EntityCatalogoConsegne catalogoconsegne = new EntityCatalogoConsegne();
-		catalogoconsegne.AssegnaConsegna();
+		EntityConsegna consegna = catalogoconsegne.creaConsegna(idOrdine, stato);
+		int res = catalogoconsegne.AssegnaConsegna(consegna);
+		return res;
 	}
 	
 	public boolean PrendiOrdineInCarico() {
-	    if (Ordini.size() == 0) return false;
-
+	    
+		String stato = "In preparazione";
+		if (Ordini.size() == 0) return false;
 	    boolean ordineAggiornato = false;
 	    int i = 0;
 	    
 	    while(i<Ordini.size() && ordineAggiornato == false) {
-	        if (Ordini.get(i).getStatoOrdine() == "") {
-	            Ordini.get(i).setStatoOrdine("In_Preparazione");
+	        if (Ordini.get(i).getStatoOrdine().equals("")) {
+	            Ordini.get(i).setStatoOrdine(stato);
+	            OrdineDAO ordine = new OrdineDAO(Ordini.get(i).getIDOrdine());
+	            ordine.aggiornaStatoInDB(stato);
 	            ordineAggiornato = true;
-	         // AGGIORNARE DATABASE
 	        }
 	        i++;
 	    }
@@ -66,8 +76,6 @@ public class EntityCatalogoOrdini {
 		return Ordini;
 	}
 	
-	
-
 }
 
 

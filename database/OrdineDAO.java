@@ -131,6 +131,18 @@ public class OrdineDAO {
 		return ret;
 	}
 	
+	public void aggiornaStatoInDB(String stato) {
+		String query = "UPDATE ordine SET StatoOrdine ='"+stato+"' WHERE idOrdine ='"+this.IDOrdine+"';"; 
+		System.out.println(query);
+		try {
+			
+			DBConnectionManager.updateQuery(query);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public int getIDOrdine() {
 		return IDOrdine;
 	}
