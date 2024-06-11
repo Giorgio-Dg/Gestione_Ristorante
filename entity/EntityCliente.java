@@ -70,7 +70,7 @@ public class EntityCliente {
 	}
 	
 	
-	public void EffettuaOrdine(ArrayList<EntityElementoOrdine> piatti) {
+	public int EffettuaOrdine(ArrayList<EntityElementoOrdine> piatti) {
 		EntityOrdine nuovoOrdine = new EntityOrdine();
 		
 		EntityCatalogoOrdini catalogoOrdini = new EntityCatalogoOrdini();
@@ -90,7 +90,13 @@ public class EntityCliente {
 		neword.setStatoOrdine(nuovoOrdine.getStatoOrdine());
 		neword.setData(nuovoOrdine.getData());
 		
-		//neword.scriviInDB();
+		int i = neword.salvaInDB();
+		
+		//salvare anche i dati della classe associativa ElementoOrdine
+		
+		//salvare anche elemento ordine in db 
+		
+		return i;
 	}
 
 	@Override

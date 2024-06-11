@@ -41,6 +41,24 @@ public class ElementoOrdineDAO {
 		Quantita = quantita;
 	}
 
+	public int salvaInDB(){
+		int ret = 0;
+		
+		String query = "INSERT INTO ordine(idOrdine,StatoOrdine,Data,Cliente_idCliente) VALUES ('"+this.IDOrdine+"',"+"'"+this.StatoOrdine+"','"+this.Data+"','"+this.Cliente.getIDCliente()+"')"; 
+		System.out.println(query);
+		try {
+			
+			ret = DBConnectionManager.updateQuery(query);
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			ret = -1;
+		}
+		
+		return ret;
+	}
+	
 	public PiattoDAO getPiatto() {
 		return Piatto;
 	}
