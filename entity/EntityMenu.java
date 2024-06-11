@@ -19,7 +19,7 @@ public class EntityMenu {
 		Piatti = piatti;
 	}
 	
-	public ArrayList<EntityPiatto> VisualizzaPiatti() {
+	public static ArrayList<EntityPiatto> VisualizzaPiatti() {
 		
 		ArrayList<PiattoDAO> piatti = PiattoDAO.caricaTuttiPiattiDaDB();
 		ArrayList<EntityPiatto> elenco_piatti = new ArrayList<EntityPiatto>();
