@@ -51,13 +51,12 @@ public class CorriereDAO {
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				
 				CorriereDAO corriere = new CorriereDAO();
 				corriere.setIDCorriere(rs.getInt("idCorriere"));
 				corriere.setNome(rs.getString("Nome"));
 				corriere.setDisponibilita(rs.getInt("Disponibilita"));
-				/////////////////////////////////////////////////////////////////////
 				
 				elenco_corrieri.add(corriere);
 			}

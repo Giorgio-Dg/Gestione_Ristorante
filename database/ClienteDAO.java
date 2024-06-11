@@ -49,7 +49,7 @@ public class ClienteDAO{
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				ClienteDAO cliente = new ClienteDAO();
 				cliente.setIDCliente(rs.getInt("idCliente"));
 				cliente.setNome(rs.getString("Nome"));

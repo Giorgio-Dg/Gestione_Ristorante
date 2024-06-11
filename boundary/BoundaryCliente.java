@@ -57,10 +57,12 @@ public class BoundaryCliente extends JFrame {
 		JButton btnNewButton = new JButton("Effettua Ordine");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				//ControllerCliente.EffettuaOrdine(idcliente, piatti, qta);
 			}
 		});
-		btnNewButton.setBounds(140, 215, 175, 23);
+		btnNewButton.setBounds(121, 215, 175, 23);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Nome Piatto");

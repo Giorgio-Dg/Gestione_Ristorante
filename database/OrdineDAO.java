@@ -53,7 +53,7 @@ public class OrdineDAO {
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				
 				OrdineDAO ordine = new OrdineDAO();
 				ordine.setIDOrdine(rs.getInt("idOrdine"));

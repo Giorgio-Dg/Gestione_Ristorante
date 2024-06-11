@@ -40,7 +40,7 @@ public class PiattoDAO {
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				PiattoDAO piatto = new PiattoDAO();
 				piatto.setNome(rs.getString("Nome"));
 				piatto.setDescrizione(rs.getString("Descrizione"));

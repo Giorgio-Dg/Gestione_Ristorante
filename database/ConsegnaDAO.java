@@ -44,7 +44,7 @@ public class ConsegnaDAO {
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				
 			}
 		} catch (ClassNotFoundException | SQLException e) {
