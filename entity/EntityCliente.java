@@ -85,6 +85,10 @@ public class EntityCliente {
 		Date now =new Date();
 		nuovoOrdine.setData(now);
 		
+		for(int i=0;i<piatti.size();i++) {
+			//piatti.get(i).//come setto l'ordine in ElementoOrdine
+		}
+		
 		catalogoOrdini.getOrdini().add(nuovoOrdine);
 		
 		OrdineDAO neword = new OrdineDAO();
@@ -103,7 +107,7 @@ public class EntityCliente {
 	
 	public void salvaClientePiattiInOrdineDAO(OrdineDAO nuovoOrdine, EntityCliente cliente, ArrayList<EntityElementoOrdine> piatti) {
 		salvaCliente(cliente, nuovoOrdine.getCliente());
-		salvaPiatti();
+		salvaPiatti(nuovoOrdine, piatti,nuovoOrdine.getPiatti());
 		
 	}
 	
@@ -114,16 +118,14 @@ public class EntityCliente {
 		clienteDAO.setIndirizzo(cliente.getIndirizzo());
 	}
 	
-	public void salvaPiatti(ArrayList<EntityElementoOrdine> piatti, ArrayList<ElementoOrdineDAO> piattiDAO) {
+	public void salvaPiatti(OrdineDAO nuovoOrdine, ArrayList<EntityElementoOrdine> piatti, ArrayList<ElementoOrdineDAO> piattiDAO) {
 		for(int i=0;i<piatti.size();i++) {
 			
-			OrdineDAO newordine = new OrdineDAO();
-			newordine.setIDOrdine(piatti.get(i).getOrdine().getIDOrdine());
-			PiattoDAO newpiatto = new PiattoDAO();
-			newpiatto
+			PiattoDAO piatto = new PiattoDAO();
+			piatto.setNome(piatti.get(i).getPiatto().getNome());
+			piatto.setDescrizione(piatti.get(i).getPiatto().getDescrizione());
 			
-			
-			ElementoOrdineDAO elemento = new ElementoOrdineDAO(newordine, );
+			ElementoOrdineDAO elemento = new ElementoOrdineDAO(nuovoOrdine, piatto, piatti.get(i).getQuantita());
 		}
 	}
 	
