@@ -131,6 +131,18 @@ public class ConsegnaDAO {
 		}
 	}
 
+	public void aggiornaStatoConsegnaInDB(String stato) {
+		String query = "UPDATE consegna SET StatoConsegna ='"+stato+"';"; 
+		System.out.println(query);
+		try {
+			
+			DBConnectionManager.updateQuery(query);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public int getIDConsegna() {
 		return IDConsegna;
 	}

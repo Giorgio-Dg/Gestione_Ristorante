@@ -2,6 +2,7 @@ package entity;
 
 import java.util.ArrayList;
 
+import database.ConsegnaDAO;
 import database.CorriereDAO;
 
 public class EntityCorriere {
@@ -94,18 +95,29 @@ public class EntityCorriere {
 	
 	public int AggiornaStatoConsegna(int idConsegna) {
 		
+		String statocorr = "Pronto per consegna";
+		String stato1 = "In consegna";
+		String stato2 = "Consegnato";
+		
 		if(trovaConsegna(idConsegna) == -1) {return -1;}
 		
 		else {
-		
 			int myidConsegna = trovaConsegna(idConsegna);
-			if(Consegne.get(myidConsegna).getStatoConsegna() == "Pronto per consegna") {
-				Consegne.get(myidConsegna).setStatoConsegna("In consegna");
-				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "In consegna");  
+			if(Consegne.get(myidConsegna).getStatoConsegna().equals(statocorr)) {
+				Consegne.get(myidConsegna).setStatoConsegna(stato1);
+				
+				ConsegnaDAO consegna = new ConsegnaDAO(myidConsegna);
+				consegna.aggiornaStatoConsegnaInDB(stato1);
+				
+				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, stato1);  
 			}
 			else {
-				Consegne.get(myidConsegna).setStatoConsegna("Consegnato");
-				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, "Consegnato");    
+				Consegne.get(myidConsegna).setStatoConsegna(stato2);
+				
+				ConsegnaDAO consegna = new ConsegnaDAO(myidConsegna);
+				consegna.aggiornaStatoConsegnaInDB(stato1);
+				
+				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, stato2);
 	
 			}
 			return 0;
