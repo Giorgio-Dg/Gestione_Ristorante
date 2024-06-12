@@ -2,7 +2,7 @@ package entity;
 
 import database.OrdineDAO;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 public class EntityOrdine {
 	
