@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 public class OrdineDAO {
 	
@@ -17,6 +17,7 @@ public class OrdineDAO {
 	public OrdineDAO() {
 		super();
 		// TODO Auto-generated constructor stub
+		this.Piatti = new ArrayList<ElementoOrdineDAO>();
 	}
 
 	//costruttore che prende in ingresso la PK
@@ -85,6 +86,8 @@ public class OrdineDAO {
 				cliente.setCognome(rs1.getString("c.Cognome"));
 				cliente.setIndirizzo(rs1.getString("c.Indirizzo"));
 				
+				this.setCliente(cliente);
+				
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -94,7 +97,7 @@ public class OrdineDAO {
 	
 	public void caricaPiattiOrdineDaDB() {
 		
-		String query = new String("select * from ordini join elementoordini on idOrdine=Ordine_idOrdine");
+		String query = new String("select * from ordine join elementoordine on idOrdine=Ordine_idOrdine");
 		try {
 			
 			ResultSet rs1 = DBConnectionManager.selectQuery(query);
