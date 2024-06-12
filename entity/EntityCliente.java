@@ -85,13 +85,13 @@ public class EntityCliente {
 		ArrayList<ElementoOrdineDAO> el = new ArrayList<ElementoOrdineDAO>();
 		neword.setPiatti(el);
 		
-		salvaClientePiattiInOrdineDAO(neword, this, piatti); //this o nuovoOrdine.getCliente()???
-
-		for(int i=0;i<neword.getPiatti().size();i++) {
-			op = neword.getPiatti().get(i).salvaInDB();
-		}
+		salvaClientePiattiInOrdineDAO(neword, this, piatti); 
 		
 		op1 = neword.salvaInDB();
+		
+		for(int i=0;i<el.size();i++) {
+			op = el.get(i).salvaInDB();
+		}
 		
 		return op && op1;
 	}

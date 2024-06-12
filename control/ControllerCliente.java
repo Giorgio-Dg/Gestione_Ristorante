@@ -26,12 +26,14 @@ public class ControllerCliente {
 		nuovoOrdine.setData(now);
 		
 		ArrayList<EntityElementoOrdine> piatti = new ArrayList<EntityElementoOrdine>();
-		for(int i=0;i<piatti.size();i++) {
+		
+		for(int i=0;i<Nomi_piatti.size();i++) {
 			EntityPiatto p = new EntityPiatto(Nomi_piatti.get(i));
 			EntityElementoOrdine piatto = new EntityElementoOrdine(nuovoOrdine, p, Qta.get(i));
 			piatti.add(piatto);
 			
 		}
+		
 		nuovoOrdine.setPiatti(piatti);
 		
 		boolean ret = cliente.EffettuaOrdine(nuovoOrdine, piatti);

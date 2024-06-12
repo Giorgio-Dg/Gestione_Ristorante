@@ -56,7 +56,6 @@ public class ElementoOrdineDAO {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 			ret = false;
-			System.out.println("ERRORE");
 		}
 		
 		return ret;
