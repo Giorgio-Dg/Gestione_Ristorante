@@ -31,9 +31,6 @@ public class BoundaryCuoco extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public BoundaryCuoco() {
 		super("Area Cuoco");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,7 +43,8 @@ public class BoundaryCuoco extends JFrame {
 		JButton btnPrendiOrdineInCarico = new JButton("Prendi ordine in carico");
 		btnPrendiOrdineInCarico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				InfoOrdine info = new InfoOrdine();
+				info.setVisible(true);
 			}
 		});
 		btnPrendiOrdineInCarico.setBounds(114, 81, 201, 23);
