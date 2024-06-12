@@ -29,7 +29,6 @@ public class BoundaryCliente extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 
-	//commento
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
