@@ -111,7 +111,7 @@ public class EntityOrdine {
 
 	@Override
 	public String toString() {
-		return "EntityOrdine [IDOrdine=" + IDOrdine + ", StatoOrdine=" + StatoOrdine + ", Data=" + Data + ", Cliente="
+		return "Ordine [IDOrdine=" + IDOrdine + ", StatoOrdine=" + StatoOrdine + ", Data=" + Data + ", Cliente="
 				+ Cliente + ", Piatti=" + Piatti + "]";
 	}
 	

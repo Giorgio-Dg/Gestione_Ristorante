@@ -7,10 +7,10 @@ public class ControllerCuoco {
 	public static String PrendiOrdineInCarico() {
 		
 		EntityCatalogoOrdini catalogo = new EntityCatalogoOrdini();
-		boolean risp = catalogo.PrendiOrdineInCarico();
+		String risp = catalogo.PrendiOrdineInCarico();
 		
-		if(risp) return "Ordine preso in carico correttamente";
-		else return "Errore durante la presa in carico dell'ordine";
+		if(risp.equals("errore")) return "Errore durante la presa in carico dell'ordine";
+		else return risp;
 	}
 	
 	public static String SegnalaOrdineProntoPerConsegna(int idOrdine) { //controllare se l'id è giusto negli entity o dao?

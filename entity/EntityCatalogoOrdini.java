@@ -52,10 +52,10 @@ public class EntityCatalogoOrdini {
 		return res;
 	}
 	
-	public boolean PrendiOrdineInCarico() {
+	public String PrendiOrdineInCarico() {
 	    
 		String stato = "In preparazione";
-		if (Ordini.size() == 0) return false;
+		if (Ordini.size() == 0) return "errore";
 	    boolean ordineAggiornato = false;
 	    int i = 0;
 	    
@@ -69,7 +69,7 @@ public class EntityCatalogoOrdini {
 	        i++;
 	    }
 	    
-	    return ordineAggiornato;
+	    return Ordini.get(i).toString();
 	}
 
 	public ArrayList<EntityOrdine> getOrdini() {
