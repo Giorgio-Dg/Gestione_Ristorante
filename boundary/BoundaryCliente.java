@@ -43,7 +43,7 @@ public class BoundaryCliente extends JFrame {
 	}
 
 	/**
-	 * Create the frame..
+	 * Create the frame...
 	 */
 	public BoundaryCliente() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
