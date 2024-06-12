@@ -31,9 +31,6 @@ public class BoundaryCuoco extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public BoundaryCuoco() {
 		super("Area Cuoco");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
