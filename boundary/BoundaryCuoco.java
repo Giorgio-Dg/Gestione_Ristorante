@@ -46,7 +46,8 @@ public class BoundaryCuoco extends JFrame {
 		JButton btnPrendiOrdineInCarico = new JButton("Prendi ordine in carico");
 		btnPrendiOrdineInCarico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				InfoOrdine info = new InfoOrdine();
+				info.setVisible(true);
 			}
 		});
 		btnPrendiOrdineInCarico.setBounds(114, 81, 201, 23);
