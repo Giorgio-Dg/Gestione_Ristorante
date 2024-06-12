@@ -151,10 +151,15 @@ public class BoundaryCliente extends JFrame {
 					lblNewLabel_2.setVisible(true);
 				}
 				else {
-					//Integer idcliente = Integer.parseInt(lblNewLabel_3.getText());
-					String op= ControllerCliente.EffettuaOrdine(1/*idcliente*/, piatti, qta);
-					lblNewLabel_2.setText(op);
-					lblNewLabel_2.setVisible(true);
+					try {
+						Integer idcliente = Integer.parseInt(textField_5.getText());
+						String op= ControllerCliente.EffettuaOrdine(idcliente, piatti, qta);
+						lblNewLabel_2.setText(op);
+						lblNewLabel_2.setVisible(true);
+					}
+					catch (NumberFormatException e1){
+						System.out.println("Errore l'id non è un numero intero");
+					}
 				}
 			}
 		});
