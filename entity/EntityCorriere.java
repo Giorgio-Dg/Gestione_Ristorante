@@ -102,6 +102,7 @@ public class EntityCorriere {
 		if(trovaConsegna(idConsegna) == -1) {return -1;}
 		
 		else {
+			EntityCatalogoOrdini catalogo = new EntityCatalogoOrdini();
 			int myidConsegna = trovaConsegna(idConsegna);
 			if(Consegne.get(myidConsegna).getStatoConsegna().equals(statocorr)) {
 				Consegne.get(myidConsegna).setStatoConsegna(stato1);
@@ -109,7 +110,7 @@ public class EntityCorriere {
 				ConsegnaDAO consegna = new ConsegnaDAO(myidConsegna);
 				consegna.aggiornaStatoConsegnaInDB(stato1);
 				
-				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, stato1);  
+				catalogo.AggiornaStatoOrdine(myidConsegna, stato1);  
 			}
 			else {
 				Consegne.get(myidConsegna).setStatoConsegna(stato2);
@@ -117,7 +118,7 @@ public class EntityCorriere {
 				ConsegnaDAO consegna = new ConsegnaDAO(myidConsegna);
 				consegna.aggiornaStatoConsegnaInDB(stato1);
 				
-				EntityCatalogoOrdini.AggiornaStatoOrdine(myidConsegna, stato2);
+				catalogo.AggiornaStatoOrdine(myidConsegna, stato2);
 	
 			}
 			return 0;

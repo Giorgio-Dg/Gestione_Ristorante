@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import database.OrdineDAO;
 
 public class EntityCatalogoOrdini {
-	private static ArrayList<EntityOrdine> Ordini;
+	private ArrayList<EntityOrdine> Ordini;
 
 
 
@@ -31,7 +31,7 @@ public class EntityCatalogoOrdini {
 
 	}
 	
-	public static void AggiornaStatoOrdine(int idOrdine, String stato) {
+	public void AggiornaStatoOrdine(int idOrdine, String stato) {
 		/*accedo all'elemento di indice pari all'idordine poichè gli id agli ordini (ed anche alle consegne) sono
 		  sono assegnati con valori sequenziali in base al numero di elementi nell'array list*/
 		
@@ -53,7 +53,6 @@ public class EntityCatalogoOrdini {
 	}
 	
 	public String PrendiOrdineInCarico() {
-	    
 		String stato = "In preparazione";
 		if (Ordini.size() == 0) return "errore";
 	    boolean ordineAggiornato = false;
