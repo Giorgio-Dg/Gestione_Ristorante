@@ -1,7 +1,7 @@
 package control;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import entity.EntityCatalogoOrdini;
 import entity.EntityCliente;
 import entity.EntityElementoOrdine;
@@ -15,14 +15,14 @@ public class ControllerCliente {
 		
 		EntityOrdine nuovoOrdine = new EntityOrdine();
 		EntityCatalogoOrdini catalogoOrdini = new EntityCatalogoOrdini();
-		int indice = catalogoOrdini.getOrdini().size() - 1;
+		int indice = catalogoOrdini.getOrdini().size();
 		nuovoOrdine.setIDOrdine(indice);
 		
 		EntityCliente cliente= new EntityCliente(idcliente);
 		nuovoOrdine.setCliente(cliente);
 		
 		nuovoOrdine.setStatoOrdine("");
-		Date now =new Date();
+		Date now =new Date(System.currentTimeMillis());
 		nuovoOrdine.setData(now);
 		
 		ArrayList<EntityElementoOrdine> piatti = new ArrayList<EntityElementoOrdine>();
