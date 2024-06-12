@@ -46,6 +46,7 @@ public class BoundaryCliente extends JFrame {
 	 * Create the frame...
 	 */
 	public BoundaryCliente() {
+		super("Area Cliente");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -56,10 +57,12 @@ public class BoundaryCliente extends JFrame {
 		JLabel lblNewLabel = new JLabel("Nome Piatto");
 		lblNewLabel.setBounds(41, 14, 99, 14);
 		contentPane.add(lblNewLabel);
+		lblNewLabel.setForeground(Color.BLUE);
 		
 		JLabel lblQuantita = new JLabel("Quantita'");
 		lblQuantita.setBounds(306, 14, 90, 14);
 		contentPane.add(lblQuantita);
+		lblQuantita.setForeground(Color.BLUE);
 		
 		textField = new JTextField();
 		textField.setBounds(287, 39, 86, 20);
