@@ -2,6 +2,8 @@ package entity;
 
 import java.util.ArrayList;
 
+
+
 import database.ClienteDAO;
 import database.OrdineDAO;
 import database.PiattoDAO;
@@ -124,7 +126,7 @@ public class EntityCliente {
 
 	@Override
 	public String toString() {
-		return "[IDCliente=" + IDCliente + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Indirizzo="
+		return "EntityCliente [IDCliente=" + IDCliente + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Indirizzo="
 				+ Indirizzo + "]";
 	}
 }
