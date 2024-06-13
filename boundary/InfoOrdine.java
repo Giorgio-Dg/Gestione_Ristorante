@@ -35,6 +35,7 @@ public class InfoOrdine extends JFrame {
 	 * Create the frame.
 	 */
 	public InfoOrdine() {
+		super("Area Cuoco - Info ordine preso in carico");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 400);
 		contentPane = new JPanel();
