@@ -5,6 +5,7 @@ import database.PiattoDAO;
 public class EntityPiatto {
 	private String Nome;
 	private String Descrizione;
+	private EntityElementoOrdine link;
 	
 	public EntityPiatto() {
 		super();
@@ -36,6 +37,22 @@ public class EntityPiatto {
 	}
 	public void setDescrizione(String descrizione) {
 		Descrizione = descrizione;
+	}
+	
+	public void inserisciLinkElemento(EntityElementoOrdine t) {
+		
+		if (link == null && t !=null && t.getPiatto() == this) {
+			link = t;
+		}
+	}
+	
+
+	public EntityElementoOrdine getLink() {
+		return link;
+	}
+
+	public void setLink(EntityElementoOrdine link) {
+		this.link = link;
 	}
 
 	@Override

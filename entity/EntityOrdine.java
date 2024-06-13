@@ -1,6 +1,5 @@
 package entity;
 
-import database.ElementoOrdineDAO;
 import database.OrdineDAO;
 import java.util.ArrayList;
 import java.sql.Date;
@@ -50,9 +49,9 @@ public class EntityOrdine {
 		caricaCliente(ordine);
 		
 		ordine.caricaPiattiOrdineDaDB();
-		System.out.println(ordine.toString());
-		System.out.println(ordine.getPiatti().size());
-		caricaPiatti(ordine);
+		//System.out.println(ordine.toString());
+		//System.out.println(ordine.getPiatti().size());
+		//caricaPiatti(ordine);
 	}
 
 	
@@ -65,9 +64,14 @@ public class EntityOrdine {
 	
 	public void caricaPiatti(OrdineDAO ordine) {
 		for(int i=0;i<ordine.getPiatti().size();i++) {
-			ElementoOrdineDAO piattodao =ordine.getPiatti().get(i);
-			EntityElementoOrdine piatto = new EntityElementoOrdine(piattodao);
-			this.Piatti.add(piatto);
+			
+			EntityPiatto piatto = new EntityPiatto(ordine.getPiatti().get(i).getPiatto());
+			EntityElementoOrdine elemento = new EntityElementoOrdine(ordine.getPiatti().get(i));
+			
+			piatto.inserisciLinkElemento(elemento);
+			
+			
+			this.Piatti.add(piatto.getLink());
 		}
 	}
 

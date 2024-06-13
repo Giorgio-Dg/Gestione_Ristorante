@@ -24,7 +24,7 @@ public class EntityElementoOrdine {
 		
 		this.Quantita = el.getQuantita();
 	}
-
+	
 	public void caricaOrdine(ElementoOrdineDAO el) {
 		
 		EntityOrdine ordine = new EntityOrdine(el.getOrdine());		
