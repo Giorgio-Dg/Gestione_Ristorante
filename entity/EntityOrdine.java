@@ -32,7 +32,7 @@ public class EntityOrdine {
 		caricaCliente(ordine);
 		
 		ordine.caricaPiattiOrdineDaDB();
-		caricaPiatti(ordine);
+		//caricaPiatti(ordine);
 		
 	}
 	
@@ -49,8 +49,7 @@ public class EntityOrdine {
 		caricaCliente(ordine);
 		
 		ordine.caricaPiattiOrdineDaDB();
-		caricaPiatti(ordine);
-; 
+		//caricaPiatti(ordine);
 	}
 
 	
@@ -61,13 +60,13 @@ public class EntityOrdine {
 		
 	}
 	
-	public void caricaPiatti(OrdineDAO ordine) {
+	/*public void caricaPiatti(OrdineDAO ordine) {
 		for(int i=0;i<ordine.getPiatti().size();i++) {
 			
 			EntityElementoOrdine piatto = new EntityElementoOrdine(ordine.getPiatti().get(i));
 			this.Piatti.add(piatto);
 		}
-	}
+	}*/
 
 	public int getIDOrdine() {
 		return IDOrdine;

@@ -66,7 +66,7 @@ public class EntityCatalogoOrdini {
 	        i++;
 	    }
 	    
-	    return Ordini.get(i).toString();
+	    return Ordini.get(i-1).toString();
 	}
 
 	public ArrayList<EntityOrdine> getOrdini() {
