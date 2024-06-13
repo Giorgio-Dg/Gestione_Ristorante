@@ -21,8 +21,6 @@ public class EntityCatalogoOrdini {
 		
 		ordini = OrdineDAO.caricaTuttiOrdiniDaDB();
 		
-		
-		
 		for(int i=0;i<ordini.size();i++) {
 			
 			EntityOrdine ordine = new EntityOrdine(ordini.get(i));
