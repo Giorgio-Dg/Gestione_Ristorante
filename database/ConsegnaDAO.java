@@ -119,7 +119,7 @@ public class ConsegnaDAO {
 		return ret;
 	}
 	
-	public void aggiornaCorriereInDB() {
+	/*public void aggiornaCorriereInDB() {
 		String query = "UPDATE consegna SET Corriere_idCorriere ='"+this.Corriere.getIDCorriere()+"';"; 
 		System.out.println(query);
 		try {
@@ -129,7 +129,7 @@ public class ConsegnaDAO {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	public void aggiornaStatoConsegnaInDB(String stato) {
 		String query = "UPDATE consegna SET StatoConsegna ='"+stato+"';"; 
