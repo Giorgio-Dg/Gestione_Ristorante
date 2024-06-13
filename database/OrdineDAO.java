@@ -35,10 +35,8 @@ public class OrdineDAO {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
 			if(rs.next()) {
-				
-				OrdineDAO ordine = new OrdineDAO();
-				ordine.setStatoOrdine(rs.getString("StatoOrdine"));
-				ordine.setData(rs.getDate("Data"));
+				this.setStatoOrdine(rs.getString("StatoOrdine"));
+				this.setData(rs.getDate("Data"));
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
