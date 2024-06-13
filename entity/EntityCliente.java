@@ -124,7 +124,7 @@ public class EntityCliente {
 
 	@Override
 	public String toString() {
-		return "EntityCliente [IDCliente=" + IDCliente + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Indirizzo="
+		return "[IDCliente=" + IDCliente + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Indirizzo="
 				+ Indirizzo + "]";
 	}
 }

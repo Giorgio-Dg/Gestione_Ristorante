@@ -10,7 +10,7 @@ public class ControllerCuoco {
 		String risp = catalogo.PrendiOrdineInCarico();
 		
 		if(risp.equals("errore")) return "Errore durante la presa in carico dell'ordine";
-		else return risp;
+		else return "\tOrdine preso in carico:\n\n"+risp;
 	}
 	
 	public static String SegnalaOrdineProntoPerConsegna(int idOrdine) { //controllare se l'id è giusto negli entity o dao?

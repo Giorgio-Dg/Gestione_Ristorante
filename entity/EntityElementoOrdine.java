@@ -51,7 +51,7 @@ public class EntityElementoOrdine {
 
 	@Override
 	public String toString() {
-		return "Piatto=" + Piatto + ", Quantita=" + Quantita;
+		return Piatto + ", Quantita=" + Quantita;
 	}
 	
 }

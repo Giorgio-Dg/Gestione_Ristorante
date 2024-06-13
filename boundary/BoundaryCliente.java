@@ -72,23 +72,23 @@ public class BoundaryCliente extends JFrame {
 		ArrayList<String> menu = ControllerCliente.VisualizzaMenu();
 		
 		JLabel lblNewLabel_1 = new JLabel(menu.get(0));
-		lblNewLabel_1.setBounds(41, 42, 46, 14);
+		lblNewLabel_1.setBounds(41, 42, 100, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel(menu.get(1));
-		lblNewLabel_1_1.setBounds(41, 67, 46, 14);
+		lblNewLabel_1_1.setBounds(41, 67, 100, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel(menu.get(2));
-		lblNewLabel_1_2.setBounds(41, 92, 46, 14);
+		lblNewLabel_1_2.setBounds(41, 92, 100, 14);
 		contentPane.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel(menu.get(3));
-		lblNewLabel_1_3.setBounds(41, 117, 46, 14);
+		lblNewLabel_1_3.setBounds(41, 117, 150, 14);
 		contentPane.add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel(menu.get(4));
-		lblNewLabel_1_4.setBounds(41, 142, 46, 14);
+		lblNewLabel_1_4.setBounds(41, 142, 150, 14);
 		contentPane.add(lblNewLabel_1_4);
 		
 		textField_1 = new JTextField();

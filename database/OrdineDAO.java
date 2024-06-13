@@ -184,6 +184,12 @@ public class OrdineDAO {
 	public void setPiatti(ArrayList<ElementoOrdineDAO> piatti) {
 		Piatti = piatti;
 	}
+
+	@Override
+	public String toString() {
+		return "OrdineDAO [IDOrdine=" + IDOrdine + ", StatoOrdine=" + StatoOrdine + ", Data=" + Data + ", Cliente="
+				+ Cliente + ", Piatti=" + Piatti + "]";
+	}
 	
 }
 
