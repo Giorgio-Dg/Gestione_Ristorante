@@ -31,7 +31,7 @@ public class EntityCatalogoConsegne {
 
 	}
 	
-	public EntityConsegna creaConsegna(int idordine, String stato) {
+	public int creaConsegna(int idordine, String stato) {
 		EntityConsegna consegna = new EntityConsegna();
 		
 		//per far coincidere gli id e gli indici degli elenchi
@@ -50,9 +50,11 @@ public class EntityCatalogoConsegne {
 		OrdineDAO ordinedao = new OrdineDAO(idordine);
 		consegnadao.setOrdine(ordinedao);
 		
+		int risp = this.AssegnaConsegna(consegna);
+		
 		consegnadao.salvaInDB();
 		
-		return consegna;
+		return risp;
 	}
 	
 	public int AssegnaConsegna(EntityConsegna consegna) {
@@ -65,7 +67,7 @@ public class EntityCatalogoConsegne {
 			ConsegnaDAO consegnadao = new ConsegnaDAO(consegna.getIDConsegna());
 			
 			consegnadao.setCorriere(corrieredao);
-			consegnadao.aggiornaCorriereInDB();
+			//consegnadao.aggiornaCorriereInDB();
 			
 			return 0;
 		}

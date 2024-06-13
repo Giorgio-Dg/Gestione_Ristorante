@@ -45,8 +45,9 @@ public class EntityCatalogoOrdini {
         ordine.aggiornaStatoInDB(stato);
 		
 		EntityCatalogoConsegne catalogoconsegne = new EntityCatalogoConsegne();
-		EntityConsegna consegna = catalogoconsegne.creaConsegna(idOrdine, stato);
-		int res = catalogoconsegne.AssegnaConsegna(consegna);
+		//EntityConsegna consegna = 
+		int res = catalogoconsegne.creaConsegna(idOrdine, stato);
+		//int res = catalogoconsegne.AssegnaConsegna(consegna);
 		return res;
 	}
 	

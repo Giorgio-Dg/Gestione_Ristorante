@@ -103,7 +103,7 @@ public class ConsegnaDAO {
 	public boolean salvaInDB(){
 		boolean ret;
 		
-		String query = "INSERT INTO consegna(idConsegna,StatoConsegna,Ordine_idOrdine, Corriere_idCorriere) VALUES ('"+this.IDConsegna+"',"+"'"+this.StatoConsegna+"','"+this.Ordine.getIDOrdine()+"'"+this.getCorriere().getIDCorriere()+"')"; 
+		String query = "INSERT INTO consegna(idConsegna,StatoConsegna,Ordine_idOrdine, Corriere_idCorriere) VALUES ('"+this.IDConsegna+"',"+"'"+this.StatoConsegna+"','"+this.Ordine.getIDOrdine()+"','"+this.getCorriere().getIDCorriere()+"')"; 
 		System.out.println(query);
 		try {
 			
