@@ -32,7 +32,7 @@ public class EntityOrdine {
 		caricaCliente(ordine);
 		
 		ordine.caricaPiattiOrdineDaDB();
-		//caricaPiatti(ordine);
+		caricaPiatti(ordine);
 		
 	}
 	
@@ -51,7 +51,7 @@ public class EntityOrdine {
 		ordine.caricaPiattiOrdineDaDB();
 		//System.out.println(ordine.toString());
 		//System.out.println(ordine.getPiatti().size());
-		//caricaPiatti(ordine);
+		caricaPiatti(ordine);
 	}
 
 	

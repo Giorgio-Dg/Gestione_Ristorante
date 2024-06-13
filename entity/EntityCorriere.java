@@ -117,6 +117,7 @@ public class EntityCorriere {
 				
 				ConsegnaDAO consegna = new ConsegnaDAO(myidConsegna);
 				consegna.aggiornaStatoConsegnaInDB(stato1);
+				//aggiornare disponibilita corriere disp+=1 nel db e nei corrieri dao ed enti
 				
 				catalogo.AggiornaStatoOrdine(myidConsegna, stato2);
 	
