@@ -74,4 +74,9 @@ public class ElementoOrdineDAO {
 		return Ordine;
 	}
 
+	@Override
+	public String toString() {
+		return "ElementoOrdineDAO [Ordine=" + Ordine + ", Piatto=" + Piatto + ", Quantita=" + Quantita + "]";
+	}
+
 }
