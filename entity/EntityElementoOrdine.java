@@ -14,11 +14,12 @@ public class EntityElementoOrdine {
 		Quantita = quantita;
 	}
 	
-	public EntityElementoOrdine(ElementoOrdineDAO el) {
+	public EntityElementoOrdine(ElementoOrdineDAO el, EntityOrdine ord) {
 		
 		el.caricaDaDB();
 		
-		caricaOrdine(el);
+		this.Ordine = ord;
+		//caricaOrdine(el);
 		
 		caricaPiatto(el);
 		
