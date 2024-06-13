@@ -127,23 +127,23 @@ public class BoundaryCliente extends JFrame {
 				ArrayList<String> piatti = new ArrayList<String>();
 				ArrayList<Integer> qta = new ArrayList<Integer>();
 				
-				if(!(textField.getText().equals(""))) {
+				if(!(textField.getText().equals("") || textField.getText().equals("0"))) {
 					piatti.add(menu.get(0));
 					qta.add(Integer.parseInt(textField.getText()));
 				}
-				if(!(textField_1.getText().equals(""))) {
+				if(!(textField_1.getText().equals("") || textField_1.getText().equals("0"))) {
 					piatti.add(menu.get(1));
 					qta.add(Integer.parseInt(textField_1.getText()));
 				}
-				if(!(textField_2.getText().equals(""))) {
+				if(!(textField_2.getText().equals("") || textField_2.getText().equals("0"))) {
 					piatti.add(menu.get(2));
 					qta.add(Integer.parseInt(textField_2.getText()));
 				}
-				if(!(textField_3.getText().equals(""))) {
+				if(!(textField_3.getText().equals("") || textField_3.getText().equals("0"))) {
 					piatti.add(menu.get(3));
 					qta.add(Integer.parseInt(textField_3.getText()));
 				}
-				if(!(textField_4.getText().equals(""))) {
+				if(!(textField_4.getText().equals("") || textField_4.getText().equals("0"))) {
 					piatti.add(menu.get(4));
 					qta.add(Integer.parseInt(textField_4.getText()));
 				}
@@ -161,7 +161,9 @@ public class BoundaryCliente extends JFrame {
 						lblNewLabel_2.setVisible(true);
 					}
 					catch (NumberFormatException e1){
-						System.out.println("Errore l'id non è un numero intero");
+						lblNewLabel_2.setForeground(Color.RED);
+						lblNewLabel_2.setText("Errore l'id non è un numero intero");
+						lblNewLabel_2.setVisible(true);
 					}
 				}
 			}
