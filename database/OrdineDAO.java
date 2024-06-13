@@ -102,7 +102,7 @@ public class OrdineDAO {
 			
 			ResultSet rs1 = DBConnectionManager.selectQuery(query);
 			
-			if(rs1.next()) {
+			while(rs1.next()) {
 				
 				ElementoOrdineDAO el = new ElementoOrdineDAO(rs1.getInt("Ordine_idOrdine"), rs1.getString("Piatto_Nome"));
 				
