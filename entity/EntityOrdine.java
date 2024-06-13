@@ -66,7 +66,7 @@ public class EntityOrdine {
 		for(int i=0;i<ordine.getPiatti().size();i++) {
 			
 			EntityPiatto piatto = new EntityPiatto(ordine.getPiatti().get(i).getPiatto());
-			EntityElementoOrdine elemento = new EntityElementoOrdine(ordine.getPiatti().get(i));
+			EntityElementoOrdine elemento = new EntityElementoOrdine(ordine.getPiatti().get(i), this);
 			
 			piatto.inserisciLinkElemento(elemento);
 			
