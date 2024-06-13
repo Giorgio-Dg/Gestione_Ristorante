@@ -68,7 +68,7 @@ public class CorriereDAO {
 	}
 	
 	public void caricaConsegneCorriereDaDB() {
-			String query = new String("select * from consegna join corriere on idCorriere = Consegna_idCorriere)");
+			String query = new String("select * from consegna join corriere on idCorriere = Corriere_idCorriere");
 	try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
