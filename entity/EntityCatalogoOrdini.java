@@ -72,6 +72,11 @@ public class EntityCatalogoOrdini {
 	public ArrayList<EntityOrdine> getOrdini() {
 		return Ordini;
 	}
+
+	@Override
+	public String toString() {
+		return "EntityCatalogoOrdini [Ordini=" + Ordini + "]";
+	}
 	
 }
 

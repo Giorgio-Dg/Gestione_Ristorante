@@ -17,8 +17,6 @@ public class EntityPiatto {
 		PiattoDAO piatto = new PiattoDAO(nome);
 		
 		this.Descrizione = piatto.getDescrizione();
-		
-		//System.out.println("EntityStudente: "+studente.toString());
 	}
 	
 	public EntityPiatto(PiattoDAO piatto) {
@@ -27,14 +25,6 @@ public class EntityPiatto {
 		this.Descrizione = piatto.getDescrizione(); 
 	}
 	
-	/*
-	public void insLinkElementoOrdine(EntityElementoOrdine t) {
-		if(link == null && t!=null && t.getPiatto() == this)
-			link = t;
-	}
-	*/
-
-
 	public String getNome() {
 		return Nome;
 	}
@@ -46,6 +36,11 @@ public class EntityPiatto {
 	}
 	public void setDescrizione(String descrizione) {
 		Descrizione = descrizione;
+	}
+
+	@Override
+	public String toString() {
+		return "Piatto [Nome=" + Nome + ", Descrizione=" + Descrizione + "]";
 	}
 	
 }

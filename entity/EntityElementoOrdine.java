@@ -48,6 +48,11 @@ public class EntityElementoOrdine {
 	public EntityOrdine getOrdine() {
 		return Ordine;
 	}
+
+	@Override
+	public String toString() {
+		return "Piatto=" + Piatto + ", Quantita=" + Quantita;
+	}
 	
 }
 
