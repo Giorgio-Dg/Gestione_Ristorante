@@ -65,13 +65,9 @@ public class EntityOrdine {
 	public void caricaPiatti(OrdineDAO ordine) {
 		for(int i=0;i<ordine.getPiatti().size();i++) {
 			
-			EntityPiatto piatto = new EntityPiatto(ordine.getPiatti().get(i).getPiatto());
 			EntityElementoOrdine elemento = new EntityElementoOrdine(ordine.getPiatti().get(i), this);
 			
-			piatto.inserisciLinkElemento(elemento);
-			
-			
-			this.Piatti.add(piatto.getLink());
+			this.Piatti.add(elemento);
 		}
 	}
 

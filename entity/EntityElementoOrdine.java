@@ -17,12 +17,8 @@ public class EntityElementoOrdine {
 	public EntityElementoOrdine(ElementoOrdineDAO el, EntityOrdine ord) {
 		
 		el.caricaDaDB();
-		
 		this.Ordine = ord;
-		//caricaOrdine(el);
-		
 		caricaPiatto(el);
-		
 		this.Quantita = el.getQuantita();
 	}
 	
