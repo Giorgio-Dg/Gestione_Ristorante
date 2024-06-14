@@ -68,7 +68,7 @@ public class CorriereDAO {
 	}
 	
 	public void caricaConsegneCorriereDaDB() {
-			String query = new String("select * from consegna join corriere on idCorriere = Consegna_idCorriere)");
+			String query = new String("select * from consegna join corriere on idCorriere = Corriere_idCorriere");
 	try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
@@ -84,6 +84,18 @@ public class CorriereDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void aggiornaDisponibilitaInDB() {
+	String query = "UPDATE corriere SET Disponibilita ='"+this.getDisponibilita()+"' WHERE idCorriere ='"+this.getIDCorriere()+"';"; 
+	System.out.println(query);
+	try {
+		
+		DBConnectionManager.updateQuery(query);
+		
+	} catch (ClassNotFoundException | SQLException e) {
+		e.printStackTrace();
+	}
 	}
 
 	public int getIDCorriere() {

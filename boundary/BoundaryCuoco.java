@@ -53,7 +53,8 @@ public class BoundaryCuoco extends JFrame {
 		JButton btnSegnala = new JButton("Segnala ordine pronto");
 		btnSegnala.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				SegnalaOrdinePronto segnala = new SegnalaOrdinePronto();
+				segnala.setVisible(true);
 			}
 		});
 		btnSegnala.setBounds(114, 146, 201, 23);

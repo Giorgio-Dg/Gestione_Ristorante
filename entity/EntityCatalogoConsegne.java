@@ -31,7 +31,7 @@ public class EntityCatalogoConsegne {
 
 	}
 	
-	public EntityConsegna creaConsegna(int idordine, String stato) {
+	public int creaConsegna(int idordine, String stato) {
 		EntityConsegna consegna = new EntityConsegna();
 		
 		//per far coincidere gli id e gli indici degli elenchi
@@ -50,24 +50,27 @@ public class EntityCatalogoConsegne {
 		OrdineDAO ordinedao = new OrdineDAO(idordine);
 		consegnadao.setOrdine(ordinedao);
 		
+		int risp = this.AssegnaConsegna(consegna, consegnadao);
 		consegnadao.salvaInDB();
 		
-		return consegna;
+		return risp;
 	}
 	
-	public int AssegnaConsegna(EntityConsegna consegna) {
+	public int AssegnaConsegna(EntityConsegna consegna, ConsegnaDAO consegnadao) {
 		EntityElencoCorrieri corrieri = new EntityElencoCorrieri();
 		EntityCorriere corriere = corrieri.TrovaPrimoCorriereDisponibile();
 		if(corriere != null) {
 			consegna.setCorriere(corriere);
-			
+	
 			CorriereDAO corrieredao= new CorriereDAO(corriere.getIDCorriere());
-			ConsegnaDAO consegnadao = new ConsegnaDAO(consegna.getIDConsegna());
+			corrieredao.setDisponibilita((corrieredao.getDisponibilita()-1));
+			
+			//aggiorno la disponibilità del corriere nel db
+			corrieredao.aggiornaDisponibilitaInDB();
 			
 			consegnadao.setCorriere(corrieredao);
-			consegnadao.aggiornaCorriereInDB();
 			
-			return 0;
+			return corriere.getIDCorriere();
 		}
 		return -1;
 	}
