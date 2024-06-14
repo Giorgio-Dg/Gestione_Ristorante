@@ -111,8 +111,8 @@ public class EntityOrdine {
 
 	@Override
 	public String toString() {
-		return "\t[IDOrdine=" + IDOrdine + ", StatoOrdine=" + StatoOrdine + ", Data=" + Data + ", \n\tCliente="
-				+ Cliente + ", \n\tPiatti=" + Piatti + "]";
+		return "[IDOrdine=" + IDOrdine + ", StatoOrdine=" + StatoOrdine + ", Data=" + Data + ", \nCliente="
+				+ Cliente + ", \nPiatti:" + Piatti + "]";
 	}
 	
 }

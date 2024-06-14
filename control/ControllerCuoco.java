@@ -10,7 +10,7 @@ public class ControllerCuoco {
 		String risp = catalogo.PrendiOrdineInCarico();
 		
 		if(risp.equals("errore")) return "Errore durante la presa in carico dell'ordine";
-		else return "\tOrdine preso in carico:\n\n"+risp;
+		else return "Ordine preso in carico:\n\n"+risp;
 	}
 	
 	public static String SegnalaOrdineProntoPerConsegna(int idOrdine) { 

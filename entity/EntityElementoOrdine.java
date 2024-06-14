@@ -48,7 +48,7 @@ public class EntityElementoOrdine {
 
 	@Override
 	public String toString() {
-		return Piatto + ", Quantita=" + Quantita+"\n\t";
+		return "\n"+Piatto + ", Quantita=" + Quantita;
 	}
 	
 }
