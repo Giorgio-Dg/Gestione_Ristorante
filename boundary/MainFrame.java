@@ -59,7 +59,7 @@ public class MainFrame extends JFrame {
 				bcuoco.setVisible(true);
 			}
 		});
-		btnCuoco.setBounds(142, 169, 144, 23);
+		btnCuoco.setBounds(142, 121, 144, 23);
 		contentPane.add(btnCuoco);
 		
 		JButton btnCorriere = new JButton("Area Corriere");
@@ -69,7 +69,7 @@ public class MainFrame extends JFrame {
 				bcorriere.setVisible(true);
 			}
 		});
-		btnCorriere.setBounds(142, 121, 144, 23);
+		btnCorriere.setBounds(142, 169, 144, 23);
 		contentPane.add(btnCorriere);
 	}
 }
