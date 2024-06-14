@@ -40,7 +40,7 @@ public class EntityPiatto {
 
 	@Override
 	public String toString() {
-		return "[Nome=" + Nome + ", Descrizione=" + Descrizione + "]";
+		return "Nome=" + Nome + ", Descrizione=" + Descrizione;
 	}
 	
 }

@@ -37,7 +37,7 @@ public class InfoOrdine extends JFrame {
 	public InfoOrdine() {
 		super("Area Cuoco - Info ordine preso in carico");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 400);
+		setBounds(100, 100, 600, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -46,7 +46,7 @@ public class InfoOrdine extends JFrame {
 		String ordine = ControllerCuoco.PrendiOrdineInCarico();
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(32, 48, 467, 238);
+		textArea.setBounds(32, 48, 500, 238);
 		contentPane.add(textArea);
 		textArea.setText(ordine);
 	}

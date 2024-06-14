@@ -49,8 +49,6 @@ public class EntityOrdine {
 		caricaCliente(ordine);
 		
 		ordine.caricaPiattiOrdineDaDB();
-		//System.out.println(ordine.toString());
-		//System.out.println(ordine.getPiatti().size());
 		caricaPiatti(ordine);
 	}
 
