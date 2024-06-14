@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class SegnalaOrdinePronto extends JFrame {
 
@@ -59,12 +60,20 @@ public class SegnalaOrdinePronto extends JFrame {
 		contentPane.add(errore);
 		errore.setVisible(false);
 		
+		JLabel labelrisposta = new JLabel("New label");
+		labelrisposta.setVerticalAlignment(SwingConstants.TOP);
+		labelrisposta.setBounds(58, 146, 386, 63);
+		contentPane.add(labelrisposta);
+		labelrisposta.setVisible(false);
+		
 		JButton btnNewButton = new JButton("Segnala ordine pronto");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					int idord = Integer.parseInt(textFielIdOrdine.getText());
-					ControllerCuoco.SegnalaOrdineProntoPerConsegna(idord);
+					String risp = ControllerCuoco.SegnalaOrdineProntoPerConsegna(idord);
+					labelrisposta.setText(risp);
+					labelrisposta.setVisible(true);
 				}
 				catch (NumberFormatException e1){
 					errore.setForeground(Color.RED);

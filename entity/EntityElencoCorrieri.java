@@ -35,7 +35,6 @@ public class EntityElencoCorrieri {
 			
 			if(Corrieri.get(i).getDisponibilita() > 0) {	
 				Corrieri.get(i).setDisponibilita(Corrieri.get(i).getDisponibilita() -1);
-				//farlo anche nel db
 				return Corrieri.get(i);
 			}
 		}

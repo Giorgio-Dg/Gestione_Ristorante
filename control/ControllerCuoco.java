@@ -13,12 +13,12 @@ public class ControllerCuoco {
 		else return "\tOrdine preso in carico:\n\n"+risp;
 	}
 	
-	public static String SegnalaOrdineProntoPerConsegna(int idOrdine) { //controllare se l'id è giusto negli entity o dao?
+	public static String SegnalaOrdineProntoPerConsegna(int idOrdine) { 
 		
 		EntityCatalogoOrdini catalogo = new EntityCatalogoOrdini();
 		int risp = catalogo.SegnalaOrdineProntoPerConsegna(idOrdine);
 		
-		if(risp==-1) return "Nessun corriere attualmente disponibile a cui assegnare la consegna";
-		else return "Ordine segnalato e consegna assegnata";
+		if(risp==-1) return "Nessun corriere attualmente disponibile!";
+		else return "Ordine segnalato! Consegna assegnata al corriere con id: "+risp;
 	}
 }

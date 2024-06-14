@@ -85,6 +85,18 @@ public class CorriereDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void aggiornaDisponibilitaInDB() {
+	String query = "UPDATE corriere SET Disponibilita ='"+this.getDisponibilita()+"' WHERE idCorriere ='"+this.getIDCorriere()+"';"; 
+	System.out.println(query);
+	try {
+		
+		DBConnectionManager.updateQuery(query);
+		
+	} catch (ClassNotFoundException | SQLException e) {
+		e.printStackTrace();
+	}
+	}
 
 	public int getIDCorriere() {
 		return IDCorriere;

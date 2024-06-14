@@ -32,7 +32,6 @@ public class EntityCatalogoOrdini {
 	public void AggiornaStatoOrdine(int idOrdine, String stato) {
 		/*accedo all'elemento di indice pari all'idordine poichè gli id agli ordini (ed anche alle consegne) sono
 		  sono assegnati con valori sequenziali in base al numero di elementi nell'array list*/
-		
 		Ordini.get(idOrdine).setStatoOrdine(stato);
 		OrdineDAO ordine = new OrdineDAO(idOrdine);
         ordine.aggiornaStatoInDB(stato);
@@ -44,10 +43,9 @@ public class EntityCatalogoOrdini {
 		OrdineDAO ordine = new OrdineDAO(idOrdine);
         ordine.aggiornaStatoInDB(stato);
 		
-		EntityCatalogoConsegne catalogoconsegne = new EntityCatalogoConsegne();
-		//EntityConsegna consegna = 
+		EntityCatalogoConsegne catalogoconsegne = new EntityCatalogoConsegne(); 
 		int res = catalogoconsegne.creaConsegna(idOrdine, stato);
-		//int res = catalogoconsegne.AssegnaConsegna(consegna);
+		
 		return res;
 	}
 	

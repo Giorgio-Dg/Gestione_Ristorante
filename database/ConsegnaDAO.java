@@ -118,18 +118,6 @@ public class ConsegnaDAO {
 		
 		return ret;
 	}
-	
-	/*public void aggiornaCorriereInDB() {
-		String query = "UPDATE consegna SET Corriere_idCorriere ='"+this.Corriere.getIDCorriere()+"';"; 
-		System.out.println(query);
-		try {
-			
-			DBConnectionManager.updateQuery(query);
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
-	}*/
 
 	public void aggiornaStatoConsegnaInDB(String stato) {
 		String query = "UPDATE consegna SET StatoConsegna ='"+stato+"';"; 
