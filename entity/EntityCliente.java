@@ -1,5 +1,6 @@
 package entity;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 
@@ -73,8 +74,28 @@ public class EntityCliente {
 	}
 	
 	
-	public boolean EffettuaOrdine(EntityOrdine nuovoOrdine, ArrayList<EntityElementoOrdine> piatti) {
+	public boolean EffettuaOrdine(ArrayList<String> Nomi_piatti, ArrayList<Integer> Qta) {
 		boolean op = false,op1;
+		
+		EntityOrdine nuovoOrdine = new EntityOrdine();
+		EntityCatalogoOrdini catalogoOrdini = new EntityCatalogoOrdini();
+		int indice = catalogoOrdini.getOrdini().size();
+		nuovoOrdine.setIDOrdine(indice);
+		
+		nuovoOrdine.setStatoOrdine("");
+		Date now =new Date(System.currentTimeMillis());
+		nuovoOrdine.setData(now);
+		
+		ArrayList<EntityElementoOrdine> piatti = new ArrayList<EntityElementoOrdine>();
+		
+		for(int i=0;i<Nomi_piatti.size();i++) {
+			EntityPiatto p = new EntityPiatto(Nomi_piatti.get(i));
+			EntityElementoOrdine piatto = new EntityElementoOrdine(nuovoOrdine, p, Qta.get(i));
+			piatti.add(piatto);
+			
+		}
+		
+		nuovoOrdine.setPiatti(piatti);
 		
 		OrdineDAO neword = new OrdineDAO();
 		neword.setIDOrdine(nuovoOrdine.getIDOrdine());
@@ -94,6 +115,8 @@ public class EntityCliente {
 		for(int i=0;i<el.size();i++) {
 			op = el.get(i).salvaInDB();
 		}
+		
+		catalogoOrdini.getOrdini().add(nuovoOrdine);
 		
 		return op && op1;
 	}
