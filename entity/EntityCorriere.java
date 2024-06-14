@@ -93,15 +93,20 @@ public class EntityCorriere {
 		Consegne = consegne;
 	}
 	
-	public int AggiornaStatoConsegna(int idConsegna) {
+	public String AggiornaStatoConsegna(int idConsegna) {
 		
 		String statocorr = "Pronto per consegna";
 		String stato1 = "In consegna";
 		String stato2 = "Consegnato";
 		
-		if(trovaConsegna(idConsegna) == -1) {return -1;}
+		if(trovaConsegna(idConsegna) == -1) {return "-1";}
 		
 		else {
+			this.setDisponibilita((this.getDisponibilita()+1));
+			CorriereDAO corrieredao = new CorriereDAO(this.getIDCorriere());
+			corrieredao.setDisponibilita((this.getDisponibilita()+1));
+			corrieredao.aggiornaDisponibilitaInDB();
+			
 			EntityCatalogoOrdini catalogo = new EntityCatalogoOrdini();
 			int myidConsegna = trovaConsegna(idConsegna);
 			if(Consegne.get(myidConsegna).getStatoConsegna().equals(statocorr)) {
@@ -110,19 +115,19 @@ public class EntityCorriere {
 				ConsegnaDAO consegna = new ConsegnaDAO(myidConsegna);
 				consegna.aggiornaStatoConsegnaInDB(stato1);
 				
-				catalogo.AggiornaStatoOrdine(myidConsegna, stato1);  
+				catalogo.AggiornaStatoOrdine(myidConsegna, stato1);
+				
+				return stato1;
 			}
 			else {
 				Consegne.get(myidConsegna).setStatoConsegna(stato2);
 				
 				ConsegnaDAO consegna = new ConsegnaDAO(myidConsegna);
 				consegna.aggiornaStatoConsegnaInDB(stato1);
-				//aggiornare disponibilita corriere disp+=1 nel db e nei corrieri dao ed enti
 				
 				catalogo.AggiornaStatoOrdine(myidConsegna, stato2);
-	
+				return stato2;
 			}
-			return 0;
 		}
 	}
 	
