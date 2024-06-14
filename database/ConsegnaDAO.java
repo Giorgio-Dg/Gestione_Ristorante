@@ -80,7 +80,7 @@ public class ConsegnaDAO {
 	
 	public void caricaOrdineConsegnaDaDB() {
 		
-		String query = new String("select * from ordine o join consegna c on o.idOrdine = c.Ordine_idOrdine)" );
+		String query = new String("select * from ordine o join consegna c on o.idOrdine = c.Ordine_idOrdine" );
 		try {
 			ResultSet rs = DBConnectionManager.selectQuery(query);
 			
