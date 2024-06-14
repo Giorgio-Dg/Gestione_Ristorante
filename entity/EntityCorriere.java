@@ -55,7 +55,7 @@ public class EntityCorriere {
 	public void caricaConsegne(CorriereDAO corriere) {
 		for(int i=0;i<corriere.getConsegne().size();i++) {
 			
-			EntityConsegna consegna = new EntityConsegna(corriere.getConsegne().get(i));
+			EntityConsegna consegna = new EntityConsegna(corriere.getConsegne().get(i), this);
 			this.Consegne.add(consegna);
 		}
 	}
