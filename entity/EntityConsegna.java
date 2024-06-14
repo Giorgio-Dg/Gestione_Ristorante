@@ -27,14 +27,25 @@ public class EntityConsegna {
 		caricaOrdine(consegna);
 	}
 	
+	public EntityConsegna(ConsegnaDAO consegna) {
+		
+		this.IDConsegna = consegna.getIDConsegna();
+		this.StatoConsegna = consegna.getStatoConsegna();
+		
+		consegna.caricaCorriereConsegnaDaDB();
+		caricaCorriere(consegna);
+		
+		consegna.caricaOrdineConsegnaDaDB();
+		caricaOrdine(consegna);
+
+	}
+	
 	public EntityConsegna(ConsegnaDAO consegna, EntityCorriere corr) {
 		
 		this.IDConsegna = consegna.getIDConsegna();
 		this.StatoConsegna = consegna.getStatoConsegna();
 		
 		this.Corriere = corr;
-		//consegna.caricaCorriereConsegnaDaDB();
-		//caricaCorriere(consegna);
 		
 		consegna.caricaOrdineConsegnaDaDB();
 		caricaOrdine(consegna);
