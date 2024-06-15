@@ -102,11 +102,6 @@ public class EntityCorriere {
 		if(trovaConsegna(idConsegna) == -1) {return "-1";}
 		
 		else {
-			this.setDisponibilita((this.getDisponibilita()+1));
-			CorriereDAO corrieredao = new CorriereDAO(this.getIDCorriere());
-			corrieredao.setDisponibilita((this.getDisponibilita()+1));
-			corrieredao.aggiornaDisponibilitaInDB();
-			
 			EntityCatalogoOrdini catalogo = new EntityCatalogoOrdini();
 			int myidConsegna = trovaConsegna(idConsegna);
 			if(Consegne.get(myidConsegna).getStatoConsegna().equals(statocorr)) {
@@ -120,6 +115,12 @@ public class EntityCorriere {
 				return stato1;
 			}
 			else {
+				
+				this.setDisponibilita((this.getDisponibilita()+1));
+				CorriereDAO corrieredao = new CorriereDAO(this.getIDCorriere());
+				corrieredao.setDisponibilita((this.getDisponibilita()+1));
+				corrieredao.aggiornaDisponibilitaInDB();
+				
 				Consegne.get(myidConsegna).setStatoConsegna(stato2);
 				
 				ConsegnaDAO consegna = new ConsegnaDAO(myidConsegna);
