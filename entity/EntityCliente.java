@@ -82,7 +82,7 @@ public class EntityCliente {
 		int indice = catalogoOrdini.getOrdini().size();
 		nuovoOrdine.setIDOrdine(indice);
 		
-		nuovoOrdine.setStatoOrdine("");
+		nuovoOrdine.setStatoOrdine("In coda");
 		Date now =new Date(System.currentTimeMillis());
 		nuovoOrdine.setData(now);
 		

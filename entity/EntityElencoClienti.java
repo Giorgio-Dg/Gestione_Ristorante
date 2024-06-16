@@ -28,6 +28,14 @@ public class EntityElencoClienti {
 		}
 
 	}
+
+	public ArrayList<EntityCliente> getClienti() {
+		return Clienti;
+	}
+
+	public void setClienti(ArrayList<EntityCliente> clienti) {
+		Clienti = clienti;
+	}
 	
 	
 }

@@ -9,7 +9,7 @@ public class ControllerCuoco {
 		EntityCatalogoOrdini catalogo = new EntityCatalogoOrdini();
 		String risp = catalogo.PrendiOrdineInCarico();
 		
-		if(risp.equals("errore")) return "Errore durante la presa in carico dell'ordine";
+		if(risp.equals("errore")) return "Nessun ordine in arrivo!";
 		else return "Ordine preso in carico:\n\n"+risp;
 	}
 	

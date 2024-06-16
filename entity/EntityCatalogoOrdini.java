@@ -56,7 +56,7 @@ public class EntityCatalogoOrdini {
 	    int i = 0;
 	    
 	    while(i<Ordini.size() && ordineAggiornato == false) {
-	        if (Ordini.get(i).getStatoOrdine().equals("")) {
+	        if (Ordini.get(i).getStatoOrdine().equals("In coda")) {
 	            Ordini.get(i).setStatoOrdine(stato);
 	            OrdineDAO ordine = new OrdineDAO(Ordini.get(i).getIDOrdine());
 	            ordine.aggiornaStatoInDB(stato);

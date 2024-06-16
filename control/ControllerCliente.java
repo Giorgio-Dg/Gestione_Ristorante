@@ -1,12 +1,9 @@
 package control;
 
 import java.util.ArrayList;
-import java.sql.Date;
-import entity.EntityCatalogoOrdini;
 import entity.EntityCliente;
-import entity.EntityElementoOrdine;
+import entity.EntityElencoClienti;
 import entity.EntityMenu;
-import entity.EntityOrdine;
 import entity.EntityPiatto;
 
 public class ControllerCliente {
@@ -35,5 +32,17 @@ public class ControllerCliente {
 		}
 		
 		return menu;
+	}
+	
+	public static ArrayList<Integer> ElencoClienti() {
+		EntityElencoClienti clienti = new EntityElencoClienti();
+		
+		ArrayList<Integer> idclienti = new ArrayList<Integer>();
+		
+		for(int i=0; i<clienti.getClienti().size();i++) {
+			idclienti.add(clienti.getClienti().get(i).getIDCliente());
+		}
+		
+		return idclienti;
 	}
 }

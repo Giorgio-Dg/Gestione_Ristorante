@@ -71,7 +71,7 @@ public class OrdineDAO {
 	public void caricaClienteOrdineDaDB() {
 		
 		String query = new String("select c.idCliente, c.Nome, c.Cognome, c.Indirizzo "
-				+ "from cliente c join ordine o on c.idCliente = o.Cliente_idCliente");
+				+ "from cliente c join ordine o on c.idCliente = o.Cliente_idCliente WHERE o.StatoOrdine = 'In coda'");
 		try {
 			
 			ResultSet rs1 = DBConnectionManager.selectQuery(query);
@@ -95,7 +95,7 @@ public class OrdineDAO {
 	
 	public void caricaPiattiOrdineDaDB() {
 		
-		String query = new String("select * from ordine join elementoordine on idOrdine=Ordine_idOrdine");
+		String query = new String("select * from ordine join elementoordine on idOrdine=Ordine_idOrdine WHERE idOrdine='"+this.getIDOrdine()+"'");
 		try {
 			
 			ResultSet rs1 = DBConnectionManager.selectQuery(query);
